@@ -1,6 +1,6 @@
-# SISAKPROD
+# Ruang Unggul
 
-SISAKPROD adalah aplikasi web lokal untuk menyiapkan Akreditasi Unggul Program Studi S1 Manajemen FEB UNM. Proyek ini menyediakan katalog 138 kebutuhan bukti dari spreadsheet kerja, struktur 7 kriteria dan 21 dimensi IAU, master 58 indikator, narasi per indikator, pemeriksaan berjenjang, syarat perlu, serta simulasi kesiapan internal. Acuan pemetaan saat ini adalah Peraturan LAMEMBA Nomor 2 Tahun 2025 dan DL-09 versi 27 November 2025. [Rencana kerja lima tahap](docs/RENCANA_KERJA.md) mencatat urutan pengembangan.
+Ruang Unggul adalah aplikasi web lokal untuk menyiapkan Akreditasi Unggul Program Studi S1 Manajemen FEB UNM. Proyek ini menyediakan katalog 138 kebutuhan bukti dari spreadsheet kerja, struktur 7 kriteria dan 21 dimensi IAU, master 58 indikator, narasi per indikator, pemeriksaan berjenjang, syarat perlu, serta simulasi kesiapan internal. Acuan pemetaan saat ini adalah Peraturan LAMEMBA Nomor 2 Tahun 2025 dan DL-09 versi 27 November 2025. [Rencana kerja lima tahap](docs/RENCANA_KERJA.md) mencatat urutan pengembangan.
 
 ## Menjalankan
 
