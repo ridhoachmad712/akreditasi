@@ -135,12 +135,13 @@ async function boot(){
   catch{const status=await api('/api/setup-status');renderAuth(status.needsSetup);}
 }
 function renderAuth(setup){
-  root.innerHTML=`<div class="auth-wrap"><div class="auth-brand">${brandMarkup()}
-    <div><div class="auth-kicker">Program Studi S1 Manajemen</div><h1>${esc(appearance().loginTitle)}</h1><p>${esc(appearance().loginDescription)}</p></div>
-    <small>${esc(appearance().footerText)}</small></div><div class="auth-form-wrap"><div class="auth-card"><div class="eyebrow">${setup?'Pengaturan awal':'Masuk ke sistem'}</div>
-    <h2>${setup?'Buat akun admin':'Selamat datang kembali'}</h2><p>${setup?'Akun pertama ini mengelola pengguna dan pemetaan instrumen.':'Masuk untuk melanjutkan pekerjaan akreditasi.'}</p>
+  root.innerHTML=`<div class="auth-shell"><main class="auth-main"><div class="auth-content">
+    <div class="auth-identity">${brandMarkup()}</div><section class="auth-card" aria-labelledby="auth-title">
+    <h1 id="auth-title">${setup?'Buat akun admin':'Login ke aplikasi'}</h1>
+    ${setup?'<p>Siapkan akun pertama untuk mengelola aplikasi.</p>':''}
     <form id="auth-form">${setup?field('Nama lengkap','name','','text','required'):''}${field('Username','username','','text','required autocomplete="username" autocapitalize="none" spellcheck="false" minlength="2" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9._-]{1,31}"')}${field('Kata sandi','password','','password',`required autocomplete="${setup?'new-password':'current-password'}" ${setup?'minlength="8"':''}`)}${setup?'<p class="mini">Kata sandi minimal 8 karakter.</p>':''}
-    <button class="button primary" style="width:100%;padding:12px">${setup?'Buat akun':'Masuk'}</button><div id="auth-error" class="login-error"></div></form></div></div></div>`;
+    <button class="button primary auth-submit">${setup?'Buat akun':'Masuk'}</button><div id="auth-error" class="login-error" role="alert"></div></form>
+    </section></div></main><footer class="auth-footer">${esc(appearance().footerText)}</footer></div>`;
   bind('#auth-form','submit',async e=>{e.preventDefault();const f=new FormData(e.currentTarget);const payload=Object.fromEntries(f.entries());try{
     const result=await api(setup?'/api/setup':'/api/login',{method:'POST',body:json(payload)});state.user=result.user;await go('dashboard');
   }catch(error){root.querySelector('#auth-error').textContent=error.message;}});
@@ -434,9 +435,6 @@ async function renderSettings(){
       ${field('Nama aplikasi','appName',current.appName,'text','required maxlength="60"')}
       ${field('Subjudul di header','subtitle',current.subtitle,'text','required maxlength="100"')}
       ${field('Teks footer','footerText',current.footerText,'text','maxlength="180"')}
-      <h3>Halaman masuk</h3>
-      ${field('Judul halaman masuk','loginTitle',current.loginTitle,'text','required maxlength="160"')}
-      <div class="field"><label for="loginDescription">Deskripsi halaman masuk</label><textarea id="loginDescription" name="loginDescription" maxlength="320">${esc(current.loginDescription)}</textarea></div>
       <h3>Tampilan</h3><div class="form-grid"><div class="field"><label for="accentColor">Warna utama</label><div class="color-field"><input id="accentColor" name="accentColor" type="color" value="${esc(current.accentColor)}"><span class="mini" id="color-value">${esc(current.accentColor)}</span></div><p class="mini">Pilih warna gelap agar teks tombol tetap jelas.</p></div>
       <div class="field"><label for="font">Font aplikasi</label><select id="font" name="font">${[['inter','Inter'],['open-sans','Open Sans'],['system','Sistem'],['segoe','Segoe UI'],['arial','Arial']].map(([value,label])=>option(value,label,current.font===value)).join('')}</select></div></div>
       <div class="form-actions"><button class="button primary">Simpan pengaturan</button></div></form></section>
@@ -455,7 +453,7 @@ async function renderSettings(){
   };
   form.addEventListener('input',preview);form.addEventListener('change',preview);preview();
   form.addEventListener('submit',async event=>{event.preventDefault();try{
-    const payload=Object.fromEntries(new FormData(form).entries());
+    const payload={...Object.fromEntries(new FormData(form).entries()),loginTitle:current.loginTitle,loginDescription:current.loginDescription};
     state.appearance=await api('/api/appearance',{method:'PUT',body:json(payload)});
     applyAppearance();toast('Pengaturan tampilan disimpan.');await go('settings');
   }catch(error){handleError(error);}});
