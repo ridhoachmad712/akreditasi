@@ -1,0 +1,414 @@
+{
+  "name": "IAU LAMEMBA - Peraturan Nomor 2 Tahun 2025, DL-09 27 November 2025",
+  "sourceUrl": "https://drive.google.com/file/d/1AFxMWSIRfPM_xw3UTtmWu4cYS9mI21es/view",
+  "sourceSha256": "2b9d79bf79e26a0287e3c1b5652edd1e22b5561e78bd6c4e43eff8e4e25d8f59",
+  "expectedIndicators": 58,
+  "indicators": [
+    {
+      "code": "K1.D1.01",
+      "dimensionCode": "K1.D1",
+      "text": "UPPS/PS menunjukkan bukti pencapaian misinya yang sesuai dengan pemangku kepentingan yang dilayani, cakupan layanan yang disediakan, hasil dan kontribusi yang diharapkan berdasar nilai-nilai dan keyakinan yang menjadi landasan moral bagi keputusan, kegiatan, dan kontribusi UPPS/PS.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K1.D1.02",
+      "dimensionCode": "K1.D1",
+      "text": "UPPS/PS menunjukkan bukti bahwa misi disusun dan ditetapkan dengan melibatkan pemangku kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20"
+    },
+    {
+      "code": "K1.D1.03",
+      "dimensionCode": "K1.D1",
+      "text": "UPPS/PS menunjukkan bukti bahwa misi ditinjau dan dievaluasi agar tetap relevan dengan kebutuhan pemangku kepentingan pada saat ini dan di masa datang.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20"
+    },
+    {
+      "code": "K1.D1.04",
+      "dimensionCode": "K1.D1",
+      "text": "UPPS/PS menunjukkan bukti bahwa misi telah digunakan sebagai landasan dan pedoman bagi kebijakan, keputusan, kegiatan, hasil, dan kontribusinya.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20"
+    },
+    {
+      "code": "K1.D2.01",
+      "dimensionCode": "K1.D2",
+      "text": "UPPS/PS menunjukkan bukti pencapaian visi yang selaras dengan visi institusi.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K1.D2.02",
+      "dimensionCode": "K1.D2",
+      "text": "UPPS/PS merumuskan visi dengan jelas, realistis, kredibel, dan selaras dengan visi institusi.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20"
+    },
+    {
+      "code": "K1.D2.03",
+      "dimensionCode": "K1.D2",
+      "text": "UPPS/PS menunjukkan bukti bahwa visi mampu menjadi standar kinerja UPPS/PS, dosen, tenaga kependidikan, dan mahasiswa.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20"
+    },
+    {
+      "code": "K1.D2.04",
+      "dimensionCode": "K1.D2",
+      "text": "UPPS/PS menunjukkan bukti proses dan hasil evaluasi relevansi visi yang memerhatikan arah perkembangan lingkungan internal dan eksternal dengan melibatkan pemangku kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20"
+    },
+    {
+      "code": "K1.D2.05",
+      "dimensionCode": "K1.D2",
+      "text": "UPPS/PS menunjukkan bukti bahwa visi telah digunakan sebagai landasan dan pedoman atas kebijakan, keputusan, kegiatan, hasil, dan kontribusinya.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 20"
+    },
+    {
+      "code": "K1.D3.01",
+      "dimensionCode": "K1.D3",
+      "text": "UPPS/PS menunjukkan bukti pencapaian tujuan yang diturunkan dari misi dan visi serta dievaluasi dan ditinjau ulang secara berkala agar relevan dengan kebutuhan pemangku kepentingan, serta selaras dengan arah perkembangan lingkungan internal dan eksternal.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K1.D3.02",
+      "dimensionCode": "K1.D3",
+      "text": "UPPS/PS menunjukkan bukti pencapaian sasaran yang diturunkan dari tujuan dan dinyatakan secara spesifik, yaitu dengan menetapkan ukuran pencapaian, waktu, dan pemangku kepentingan sasaran.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K1.D3.03",
+      "dimensionCode": "K1.D3",
+      "text": "UPPS/PS menunjukkan upaya dan tingkat pencapaian tujuan dan sasaran.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K1.D4.01",
+      "dimensionCode": "K1.D4",
+      "text": "UPPS/PS menunjukkan bukti dalam menjalankan strateginya yang sesuai dengan misi, visi, tujuan dan sasarannya serta mengintegrasikan manajemen risiko.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K1.D4.02",
+      "dimensionCode": "K1.D4",
+      "text": "UPPS/PS menunjukkan bukti bahwa strategi ditetapkan dan dilaksanakan dengan mengintegrasikan manajemen risiko.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K1.D4.03",
+      "dimensionCode": "K1.D4",
+      "text": "UPPS/PS menunjukkan bukti bahwa perancangan dan pelaksanaan strategi melibatkan pemangku kepentingan dalam mendapatkan, mengembangkan, dan memanfaatkan sumber daya dengan memerhatikan keefektifan dan efisiensi.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K2.D2.01",
+      "dimensionCode": "K2.D2",
+      "text": "UPPS/PS menunjukkan struktur dan proses tata pamong.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K2.D2.02",
+      "dimensionCode": "K2.D2",
+      "text": "UPPS/PS menunjukkan bukti dilaksanakannya proses pengawasan, pembentukan sinergi, penyediaan sumber daya, penjagaan dan penguatan nilai-nilai yang mengacu pada misi dan visi institusi dengan efektif dan efisien.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K2.D1.01",
+      "dimensionCode": "K2.D1",
+      "text": "UPPS/PS menunjukkan bukti pelaksanaan perencanaan, pengorganisasian, pengarahan, dan pengendalian usaha untuk mendapatkan, mengembangkan, dan memanfaatkan sumber daya untuk mewujudkan visi, mencapai tujuan dan sasarannya.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K2.D1.02",
+      "dimensionCode": "K2.D1",
+      "text": "UPPS/PS menunjukkan bukti bahwa sistem tata kelola mampu mendorong UPPS/PS menjalankan tugas dan kewajibannya secara efektif, efisien, akuntabel, bertanggung jawab, transparan, adil, dan terhindar dari konflik kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21"
+    },
+    {
+      "code": "K2.D1.03",
+      "dimensionCode": "K2.D1",
+      "text": "UPPS/PS menjalankan sistem manajemen mutu internal yang diimplementasikan secara konsisten, efektif, dan efisien, serta melaporkan hasil penjaminan mutu secara berkala untuk tindak lanjut peningkatan mutu UPPS dan PS dalam menjalankan Tridharma.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 21; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K3.D1.01",
+      "dimensionCode": "K3.D1",
+      "text": "UPPS/PS menunjukkan bukti bahwa penerimaan mahasiswa dilaksanakan secara transparan dan selaras dengan misi, visi, tujuan dan sasaran, strategi, nilai-nilai dan profil/kompetensi lulusan yang diharapkan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22"
+    },
+    {
+      "code": "K3.D1.02",
+      "dimensionCode": "K3.D1",
+      "text": "UPPS/PS menunjukkan bukti bahwa pelaksanaan dan hasil penerimaan mahasiswa bersifat inklusif, afirmatif, adil, dan mempertimbangkan asas pemerataan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22"
+    },
+    {
+      "code": "K3.D2.01",
+      "dimensionCode": "K3.D2",
+      "text": "UPPS/PS menunjukkan bukti tingkat penggunaan (partisipasi pengguna) modalitas dan pedagogi (tangible and intangible resources) yang sesuai dengan kompetensi/CPL mahasiswa (tangible and intangible resources, serta penggunaan teknologi dan AI).",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22"
+    },
+    {
+      "code": "K3.D2.02",
+      "dimensionCode": "K3.D2",
+      "text": "UPPS/PS menunjukkan bukti tingkat penggunaan (partisipasi pengguna) fasilitas/dukungan pada kegiatan unit mahasiswa yang selaras dengan misi, visi, tujuan dan sasaran, serta strategi UPPS/PS.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22"
+    },
+    {
+      "code": "K3.D3.01",
+      "dimensionCode": "K3.D3",
+      "text": "UPPS/PS menunjukkan bukti kinerja akademik mahasiswa yang selaras dengan tujuan pendidikan Program Studi dan Standar Pendidikan Tinggi UPPS/PS, yang diukur dengan berbagai indikator, antara lain: IPK, masa studi, dan hasil keterlibatan mahasiswa dalam kegiatan yang intrakurikuler maupun ekstrakurikuler yang menunjang pengembangan kompetensi mahasiswa.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22; uraian lengkap PDF hlm 10–11"
+    },
+    {
+      "code": "K3.D4.01",
+      "dimensionCode": "K3.D4",
+      "text": "UPPS/PS menunjukkan bukti pemanfaatan layanan kesehatan fisik dan mental serta fasilitas belajar dan proses belajar yang memerhatikan kesejahteraan fisik dan mental mahasiswa.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22"
+    },
+    {
+      "code": "K3.D4.02",
+      "dimensionCode": "K3.D4",
+      "text": "UPPS/PS menunjukkan bukti pemanfaatan (partisipasi pengguna) fasilitas belajar, olahraga, kesehatan, kesenian, kantin, dan/atau fasilitas lainnya yang sesuai misi, visi, tujuan dan sasaran, serta strategi, yang memenuhi standar kebersihan, kesehatan, keamanan, dan keselamatan, serta memerhatikan kesetaraan gender dan ramah difabel.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22"
+    },
+    {
+      "code": "K3.D4.03",
+      "dimensionCode": "K3.D4",
+      "text": "UPPS/PS menunjukkan bukti ketersediaan kebijakan, peraturan, dan tindakan yang menjamin lingkungan belajar terbebas dari berbagai tindak diskriminasi, pelecehan, perundungan, dan kekerasan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 22"
+    },
+    {
+      "code": "K3.D5.01",
+      "dimensionCode": "K3.D5",
+      "text": "UPPS/PS menunjukkan bukti memiliki rencana dan melaksanakan program yang mendukung pengembangan karir mahasiswa, yang antara lain, dapat berupa pembekalan bagi mahasiswa untuk memasuki dunia kerja, pelaksanaan bursa kerja, dan penyaluran lulusan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D1.01",
+      "dimensionCode": "K4.D1",
+      "text": "UPPS/PS menunjukkan bukti penetapan dan penggunaan kriteria dalam menentukan kualifikasi dosen untuk mendukung fokus Tridharma dengan memerhatikan SN Dikti, SAN-Dikti, misi, visi, tujuan dan sasaran, serta strategi UPPS/PS yang berkaitan dengan tingkat pendidikan, jenjang jabatan akademik, bidang keilmuan, kepakaran, dan rekognisi dosen dengan jumlah yang cukup sesuai fokus Tridharma Perguruan Tinggi.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D1.02",
+      "dimensionCode": "K4.D1",
+      "text": "UPPS menunjukkan bukti penggunaan matriks yang menggambarkan rencana dan pelaksanaan penugasan dosen di berbagai PS yang dikelolanya.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D1.03",
+      "dimensionCode": "K4.D1",
+      "text": "UPPS/PS menerapkan beban kerja dosen yang konsisten dengan fokus Tridharma.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D2.01",
+      "dimensionCode": "K4.D2",
+      "text": "UPPS/PS menunjukkan bukti pelaksanaan rencana rekrutmen dan pengembangan dosen secara terstruktur, dan berkelanjutan, sehingga memiliki dosen dengan jumlah dan kualifikasi sesuai dengan kebutuhan UPPS/PS dan misi, visi, tujuan dan sasaran, serta strategi.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D2.02",
+      "dimensionCode": "K4.D2",
+      "text": "UPPS menunjukkan bukti telah memberi dukungan dan fasilitas secara terstruktur dan berkelanjutan kepada dosen untuk memajukan pendidikan, ilmu pengetahuan, praktik profesional, kerjasama/keterlibatan, dan rekognisi di bidang EMBA.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D2.03",
+      "dimensionCode": "K4.D2",
+      "text": "UPPS/PS menunjukkan bukti telah melakukan evaluasi proses secara sistematik, terstruktur, dan berkelanjutan terhadap rekrutmen, pengembangan dosen, dan bukti pengukuran kinerja dosen dalam bidang pendidikan, penelitian, dan PKM.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D3.01",
+      "dimensionCode": "K4.D3",
+      "text": "UPPS/PS menunjukkan bukti telah memiliki dan menggunakan kriteria untuk menentukan kualifikasi dan jumlah tenaga kependidikan dengan memerhatikan SN Dikti untuk mendukung kegiatan UPPS/PS dalam mencapai misi, visi, tujuan dan sasaran, serta strategi.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D3.02",
+      "dimensionCode": "K4.D3",
+      "text": "UPPS/PS menunjukkan bukti bahwa kualifikasi tenaga kependidikan (pendidikan dan kompetensi) sesuai dengan tugas yang diembannya.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 23"
+    },
+    {
+      "code": "K4.D4.01",
+      "dimensionCode": "K4.D4",
+      "text": "UPPS/PS menunjukkan bukti memiliki dan melaksanakan rencana rekrutmen dan pengembangan tenaga kependidikan secara sistematik, terstruktur, dan berkelanjutan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24"
+    },
+    {
+      "code": "K4.D4.02",
+      "dimensionCode": "K4.D4",
+      "text": "UPPS/PS menunjukkan bukti memiliki tenaga kependidikan dengan jumlah dan kualifikasi sesuai dengan kebutuhan UPPS/PS dan selaras dengan misi, visi, tujuan dan sasaran, serta strategi.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24"
+    },
+    {
+      "code": "K5.D1.01",
+      "dimensionCode": "K5.D1",
+      "text": "UPPS/PS menunjukkan bukti telah merencanakan penerimaan dan pengeluaran/pemanfaatan sumber keuangan untuk mendukung, mempertahankan, dan meningkatkan kualitas layanan, terutama yang berkaitan dengan pemenuhan kebutuhan operasional pendidikan, penelitian, dan pengabdian kepada masyarakat serta investasi yang selaras dengan misi, visi, tujuan dan sasaran, serta strategi.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24"
+    },
+    {
+      "code": "K5.D1.02",
+      "dimensionCode": "K5.D1",
+      "text": "UPPS/PS menunjukkan bukti telah melakukan usaha dan menunjukkan hasil-hasilnya untuk menjamin keberlanjutan sumber daya keuangan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24"
+    },
+    {
+      "code": "K5.D2.01",
+      "dimensionCode": "K5.D2",
+      "text": "UPPS/PS menunjukkan bukti penyediaan dan pengelolaan serta rencana pengembangan sarana dan prasarana yang dapat dimanfaatkan oleh mahasiswa dan dosen untuk kegiatan pendidikan, penelitian, pengabdian kepada masyarakat dan oleh tenaga kependidikan untuk mendukung kegiatan pendidikan, penelitian, dan pengabdian kepada masyarakat.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24"
+    },
+    {
+      "code": "K5.D2.02",
+      "dimensionCode": "K5.D2",
+      "text": "UPPS/PS menunjukkan bukti bahwa sarana dan prasarana yang memenuhi standar kebersihan, kesehatan, keamanan, dan keselamatan, serta memerhatikan kesetaraan gender dan ramah difabel.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24"
+    },
+    {
+      "code": "K6.D1.01",
+      "dimensionCode": "K6.D1",
+      "text": "UPPS/PS menunjukkan bukti penggunaan peta kurikulum untuk menjamin struktur mata kuliah dan kegiatan pembelajaran konsisten dan relevan dengan kompetensi (CPL) yang diharapkan dan selaras dengan misi, visi, tujuan dan sasaran, serta strategi.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24–25; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K6.D1.02",
+      "dimensionCode": "K6.D1",
+      "text": "UPPS/PS menunjukkan bukti implementasi kurikulum mampu memfasilitasi keterlibatan aktif mahasiswa dalam proses pembelajaran, interaksi produktif antara mahasiswa, dosen, praktisi, dan masyarakat umum untuk mencapai tujuan pembelajaran, dengan memanfaatkan kerjasama dengan mitra yang dievaluasi dan ditindaklanjuti secara berkala agar selaras dengan misi, visi, tujuan, dan sasaran, serta strategi UPPS dan visi keilmuan PS.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24–25"
+    },
+    {
+      "code": "K6.D1.03",
+      "dimensionCode": "K6.D1",
+      "text": "UPPS/PS menunjukkan bukti penggunaan materi dan metoda pembelajaran yang mutakhir dan relevan dengan kebutuhan EMBA saat ini dan di masa depan, memiliki perspektif global, selaras dengan misi, visi, tujuan dan sasaran, serta strategi untuk mencapai kompetensi (CPL) yang ditetapkan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24–25"
+    },
+    {
+      "code": "K6.D1.04",
+      "dimensionCode": "K6.D1",
+      "text": "UPPS/PS menunjukkan bukti evaluasi, perbaikan, dan pengembangan kurikulum agar sesuai dan relevan dengan perkembangan ilmu pengetahuan, praktik profesional, dan tantangan di masa yang akan datang dengan melibatkan pemangku kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 24–25"
+    },
+    {
+      "code": "K6.D2.01",
+      "dimensionCode": "K6.D2",
+      "text": "UPPS/PS menunjukkan bukti pengukuran langsung atas ketercapaian kompetensi (CPL) mahasiswa dengan menggunakan pedoman standar pemenuhan capaian pembelajaran (rubrik) dan instrumen yang valid dan handal dengan metode yang relevan dalam mengukur ketercapaian kompetensi (CPL) mahasiswa.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 25"
+    },
+    {
+      "code": "K6.D2.02",
+      "dimensionCode": "K6.D2",
+      "text": "UPPS/PS menunjukkan bukti intervensi sebagai tindak lanjut hasil pengukuran ketercapaian kompetensi (CPL) mahasiswa, untuk perbaikan kualitas pembelajaran dan tingkat pemenuhan CPL.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 25"
+    },
+    {
+      "code": "K6.D2.03",
+      "dimensionCode": "K6.D2",
+      "text": "UPPS/PS melakukan pengukuran tidak langsung atas ketercapaian kompetensi (CPL) mahasiswa, antara lain melalui survey pengguna maupun studi pelacakan lulusan (tracer study) dan mempertimbangkan masukan dari hasil pengukuran tersebut ke dalam intervensi perbaikan kualitas pembelajaran.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 25"
+    },
+    {
+      "code": "K7.D1.01",
+      "dimensionCode": "K7.D1",
+      "text": "UPPS/PS menunjukkan bukti perencanaan strategis pada kegiatan, hasil, dan kontribusi penelitiannya dalam memajukan pendidikan, ilmu pengetahuan, dan praktik profesional bagi pemangku kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 25–26"
+    },
+    {
+      "code": "K7.D1.02",
+      "dimensionCode": "K7.D1",
+      "text": "UPPS/PS menunjukkan bukti bahwa kegiatan dan hasil penelitiannya mampu berkontribusi dalam memajukan ilmu pengetahuan, pendidikan, dan praktik profesional pemangku kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 25–26"
+    },
+    {
+      "code": "K7.D1.03",
+      "dimensionCode": "K7.D1",
+      "text": "UPPS dan PS menunjukkan bukti kegiatan dan hasil kerja sama/keterlibatan penelitian (rekognisi) dengan para mitranya di bidang penelitian dan/atau praktik profesional telah mendukung dan selaras dengan misi, visi, tujuan dan sasaran, serta strategi UPPS/PS.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 25–26; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K7.D1.04",
+      "dimensionCode": "K7.D1",
+      "text": "UPPS/PS menunjukkan bukti pengintegrasian kegiatan, hasil, dan kontribusi penelitian dalam evaluasi kinerja dosen.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 25–26"
+    },
+    {
+      "code": "K7.D2.01",
+      "dimensionCode": "K7.D2",
+      "text": "UPPS/PS menunjukkan bukti perencanaan strategis pada kegiatan, hasil, dan kontribusi PKM dalam memajukan pendidikan, ilmu pengetahuan, dan praktik profesional bagi pemangku kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 26"
+    },
+    {
+      "code": "K7.D2.02",
+      "dimensionCode": "K7.D2",
+      "text": "UPPS/PS menunjukkan bukti bahwa kegiatan dan hasil PKM mampu berkontribusi dalam memajukan ilmu pengetahuan, pendidikan, dan praktik profesional pemangku kepentingan.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 26"
+    },
+    {
+      "code": "K7.D2.03",
+      "dimensionCode": "K7.D2",
+      "text": "UPPS/PS menunjukkan bukti kegiatan dan hasil kerja sama /keterlibatan pengabdian kepada masyarakat (rekognisi) dengan para mitranya di bidang pengabdian kepada masyarakat dan/atau praktik profesional mendukung dan selaras dengan misi, visi, tujuan dan sasaran, serta strategi UPPS/PS.",
+      "isRequiredUnggul": true,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 26; Tabel 7, PDF hlm 26–27"
+    },
+    {
+      "code": "K7.D2.04",
+      "dimensionCode": "K7.D2",
+      "text": "UPPS/PS menunjukkan bukti pengintegrasian kegiatan, hasil, dan kontribusi PKM dalam evaluasi kinerja dosen.",
+      "isRequiredUnggul": false,
+      "sourceRef": "DL-09 (27 November 2025), Tabel 6, PDF hlm 26"
+    }
+  ]
+}

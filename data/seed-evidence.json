@@ -1,0 +1,1106 @@
+[
+  {
+    "code": "K1.01",
+    "title": "Statuta UNM",
+    "source_unit": "Biro UNM",
+    "pic_label": "Tim K1",
+    "validator_label": "Dekan",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.02",
+    "title": "Profil dan kebijakan Perguruan Tinggi.",
+    "source_unit": "Biro UNM",
+    "pic_label": "Tim K1",
+    "validator_label": "Dekan/UPM",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.03",
+    "title": "Izin Program Studi",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K1",
+    "validator_label": "Kaprodi",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.04",
+    "title": "Pedoman VMTS UNM",
+    "source_unit": "LPMPP / LPM",
+    "pic_label": "Tim K1",
+    "validator_label": "UPM",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.05",
+    "title": "SK Penetapan VMTS FEB dan PS",
+    "source_unit": "Dekanat",
+    "pic_label": "Tim K1",
+    "validator_label": "WD I",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.06",
+    "title": "Laporan Perumusan VMTS",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K1",
+    "validator_label": "Kaprodi",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.07",
+    "title": "Laporan Ketercapaian VMTS",
+    "source_unit": "Dekanat/Prodi/UPM",
+    "pic_label": "Tim K1",
+    "validator_label": "UPM",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.08",
+    "title": "Laporan Pemahaman VMTS (3 Tahun",
+    "source_unit": "GPM",
+    "pic_label": "Tim K1",
+    "validator_label": "UPM",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.09",
+    "title": "RIP",
+    "source_unit": "Perencanaan",
+    "pic_label": "Tim K1",
+    "validator_label": "WD I",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.10",
+    "title": "Renstra UPPS",
+    "source_unit": "Dekanat",
+    "pic_label": "Tim K1",
+    "validator_label": "Dekan",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.11",
+    "title": "Laporan Ketercapaian Renstra",
+    "source_unit": "Dekanat",
+    "pic_label": "Tim K2",
+    "validator_label": "Dekan",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K1.12",
+    "title": "Renop PS",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K1",
+    "validator_label": "Kaprodi",
+    "source_sheet": "02 K1 OrientasiStrategis"
+  },
+  {
+    "code": "K2.01",
+    "title": "Ortaker UNM",
+    "source_unit": "Kepegawaian",
+    "pic_label": "Tim K2",
+    "validator_label": "WD II",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.02",
+    "title": "Statuta Unm",
+    "source_unit": "",
+    "pic_label": "",
+    "validator_label": "",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.03",
+    "title": "SK Dekan, Wakil Dekan",
+    "source_unit": "Dekanat",
+    "pic_label": "Tim K2",
+    "validator_label": "Dekan",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.04",
+    "title": "SK Senat FEB",
+    "source_unit": "Senat",
+    "pic_label": "Tim K2",
+    "validator_label": "Dekan",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.05",
+    "title": "SK Komisi Disiplin FEB",
+    "source_unit": "KTU",
+    "pic_label": "Tim K2",
+    "validator_label": "Dekan",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.06",
+    "title": "SK SPI",
+    "source_unit": "SPI",
+    "pic_label": "Tim K2",
+    "validator_label": "WD II",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.07",
+    "title": "Sk KPS",
+    "source_unit": "Kepegawaian",
+    "pic_label": "Tim K2",
+    "validator_label": "WD II",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.08",
+    "title": "Sk ketua Lab",
+    "source_unit": "Kepegawaian",
+    "pic_label": "Tim K2",
+    "validator_label": "WD II",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.09",
+    "title": "Susunan Organisasi dan Tata kerja FEB UNM",
+    "source_unit": "Kepegawaian",
+    "pic_label": "Tim K2",
+    "validator_label": "WD II",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.10",
+    "title": "Kode Etik Dosen, Tendik dan Mahasiswa",
+    "source_unit": "LPMPP",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.11",
+    "title": "Peraturan Akademik UNM",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K2",
+    "validator_label": "WD I",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.12",
+    "title": "Pedoman Akademik UPPS/PS",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K3",
+    "validator_label": "WD I",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.13",
+    "title": "Panduan/Pedoman Penelitian dan PkM Unm",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K2",
+    "validator_label": "WD I",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.14",
+    "title": "pandaun MBKM",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K2",
+    "validator_label": "WD I",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.15",
+    "title": "Panduan Penulisan Skripsi/Tugas Akhir",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K2",
+    "validator_label": "WD I",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.16",
+    "title": "Dokumen Tata Pamong",
+    "source_unit": "Dekanat",
+    "pic_label": "Tim K2",
+    "validator_label": "Dekan",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.17",
+    "title": "Laporan LAKIP UNM",
+    "source_unit": "Dekanat",
+    "pic_label": "Tim K2",
+    "validator_label": "WD II",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.18",
+    "title": "Dokumen Tata Kelola",
+    "source_unit": "Dekanat",
+    "pic_label": "Tim K2",
+    "validator_label": "Dekan",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.19",
+    "title": "SOP FEB",
+    "source_unit": "Tata Usaha / GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.20",
+    "title": "Dokumen SPMI",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.21",
+    "title": "Sk UPM/GPM",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.22",
+    "title": "Kebijakan Mutu",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.23",
+    "title": "Dokumen Mutu",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.24",
+    "title": "Manual Mutu",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.25",
+    "title": "Formulir Mutu",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.26",
+    "title": "Laporan Bencmarking",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.27",
+    "title": "Dokumen Pelaksanaan Siklus SPMI",
+    "source_unit": "LPMPP/UPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.28",
+    "title": "Survei Kepuasan",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.29",
+    "title": "Instrumen Monev Pelaksanaan Seminar Mahasiswa",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.30",
+    "title": "Instrumen Monev Kepuasan Mahasiswa",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.31",
+    "title": "Instrumen Monev Kepuasan Dosen",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.32",
+    "title": "Instrumen Monev Kepuasan Tenaga Kependidikan",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.33",
+    "title": "Instrumen Monev Kepuasan Lulusan",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.34",
+    "title": "Instrumen Monev Kurikulum",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.35",
+    "title": "Instrumen Monev Pengembangan RPS",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.36",
+    "title": "Instrumen Monev Tracer Study",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.37",
+    "title": "Instrumen Monev Masa Studi Mahasiswa",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.38",
+    "title": "nstrumen Monev Panduan/ Pedoman",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.39",
+    "title": "Instrumen Monev Proses Belajar Mengajar",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.40",
+    "title": "Instrumen Penilaian Model Case Method",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.41",
+    "title": "Instrumen Penilaian Model Problem Based Learning (PBL)",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.42",
+    "title": "Instrumen Penilaian Awal Semester Kegiatan Penelitian",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.43",
+    "title": "Instrumen Penilaian Akhir Semester Kegiatan Penelitian",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.44",
+    "title": "Instrumen Penilaian Awal Semester Kegiatan Pengabdian kepada Masyarakat",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.45",
+    "title": "Instrumen Penilaian Akhir Semester Kegiatan Pengabdian kepada Masyarakat",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.46",
+    "title": "Instrumen Untuk Mitra Penelitian",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.47",
+    "title": "Instrumen Untuk Mitra Pengabdian Masyarakat",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.48",
+    "title": "Instrumen Monev Visi Misi Program Studi",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.49",
+    "title": "Instrumen Evaluasi Soal UTS",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.50",
+    "title": "Instrumen Monev Pelaksanaan Kerjasama",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.51",
+    "title": "Instrumen Monev Pembimbingan Tugas Akhir",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.52",
+    "title": "Instrumen Monev Pelaksanaan Praktikum",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.53",
+    "title": "Instrumen Monev Suasana Akademik",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.54",
+    "title": "Instrumen Monev Layanan Kemahasiswaan",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.55",
+    "title": "Instrumen Evaluasi Soal UAS",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.56",
+    "title": "Instrumen Monev Perwalian Bagi Dosen",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.57",
+    "title": "Instrumen Monev Perwalian Bagi Mahasiswa",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.58",
+    "title": "Instrumen Mitra Pengguna Lulusan",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.59",
+    "title": "Instrumen Monev Mahasiswa Berprestasi",
+    "source_unit": "GPM",
+    "pic_label": "Tim K2",
+    "validator_label": "UPM",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K2.60",
+    "title": "Dokumen Kerjasama Dalam dan luar negeri serta laporan kegiatannya",
+    "source_unit": "Bagian Kerjasama UNM/Wakil Dekan IV",
+    "pic_label": "Tim K2",
+    "validator_label": "WD IV",
+    "source_sheet": "03 K2 TataPamong"
+  },
+  {
+    "code": "K3.01",
+    "title": "Pedoman Penerimaan Mahasiswa Baru",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.02",
+    "title": "Daya Tampung",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.03",
+    "title": "SK Maba",
+    "source_unit": "Akademik",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.04",
+    "title": "Profil Mahasiswa",
+    "source_unit": "SIAKAD",
+    "pic_label": "Operator / Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.05",
+    "title": "Early Warning System",
+    "source_unit": "TIK",
+    "pic_label": "Operator / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.06",
+    "title": "E-learning",
+    "source_unit": "TIK",
+    "pic_label": "Operator LMS / k3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.07",
+    "title": "E-Library",
+    "source_unit": "Perpustakaan",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.08",
+    "title": "Laboratorium",
+    "source_unit": "Laboratorium",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.09",
+    "title": "Fasilitas modalitas dan pedagogi seperti ketersediaan e-learning, ketersediaan\nperpustakaan/e-library, kemudahan akses jurnal, ketersediaan laboratorium,\nmagang, company visit, student mobility, pertukaran mahasiswa, dll.",
+    "source_unit": "Akademik",
+    "pic_label": "Tim 3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.10",
+    "title": "MBKM dan Magang termasuk laporan kegiatan",
+    "source_unit": "MBKM",
+    "pic_label": "Koord MBKM / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.11",
+    "title": "MoU DUDI",
+    "source_unit": "Kerjasama",
+    "pic_label": "Koord Kerjasama / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.12",
+    "title": "Survei Layanan Mahasiswa",
+    "source_unit": "GPM",
+    "pic_label": "Tim Survey / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.13",
+    "title": "Fasilitas untuk mendukung kesejahteraan mahasiswa, meliputi antara lain: a. Ketersediaan fasilitas kesehatan fisik dan mental. b. Ketersediaan fasilitas beasiswa. c. Ketersediaan asrama,  dan lain-lain",
+    "source_unit": "Kemahasiswaan",
+    "pic_label": "WD III / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.14",
+    "title": "Kinerja Mahasiswa",
+    "source_unit": "Kemahasiswaan",
+    "pic_label": "WD III / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.15",
+    "title": "Rata-rata IPK Mahasiswa Setiap Angkatan",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.16",
+    "title": "Pengukuran masa studi dan prosentase lulusan tepat waktu.",
+    "source_unit": "Prodi, Kemahasiswaan",
+    "pic_label": "Tim 3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.17",
+    "title": "sertifikat kompetensi sesuai profil lulusan",
+    "source_unit": "Kemahasiswaan",
+    "pic_label": "WD III / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.18",
+    "title": "Prestasi Mahasiswa Baik akademik/non Akademik",
+    "source_unit": "Kemahasiswaan",
+    "pic_label": "WD III / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.19",
+    "title": "Keterlibatan mahasiswa dalam seminar/konferensi ilmiah",
+    "source_unit": "Kemahasiswaan",
+    "pic_label": "WD III / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.20",
+    "title": "output/outcome lainnya yang relevan dengan profil lulusan di bidang EMBA",
+    "source_unit": "Kemahasiswaan",
+    "pic_label": "WD III / K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.21",
+    "title": "Bukti sertifikat magang",
+    "source_unit": "Prodi",
+    "pic_label": "K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.22",
+    "title": "Tracer Study",
+    "source_unit": "CDC",
+    "pic_label": "Tim Tracer/ Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.23",
+    "title": "kegiatan pengembangan karir mahasiswa,",
+    "source_unit": "CDC/Kemahasiswaan",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.24",
+    "title": "a.     Ketersediaan pusat karir;",
+    "source_unit": "CDC/Kemahasiswaan",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.25",
+    "title": "b.    Ketersediaan topik-topik pelatihan-pelatihan terkait job interview (antara lain profiling, menghadapi, dan memecahkan masalah pekerjaan EMBA, target dalam kehidupan, dll), penulisan motivation letter/resume, dan pelatihan soft-skill;",
+    "source_unit": "CDC/Kemahasiswaan",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.26",
+    "title": "c.     Pelaksanaan bursa kerja (job fair) bekerja sama dengan DUDI dan dunia kerja;",
+    "source_unit": "CDC/Kemahasiswaan",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.27",
+    "title": "d.    Ketersediaan program magang sesuai dengan Permendikbudristek 64 tahun 2024 (tersedia dosen pembimbing dan pembimbing praktisi dari mitra penyelenggara magang, membuat laporan, dll);",
+    "source_unit": "CDC/Kemahasiswaan",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K3.28",
+    "title": "e.    Ketersediaan program sertifikasi sesuai dengan profil lulusan, dll.",
+    "source_unit": "CDC/Kemahasiswaan",
+    "pic_label": "Tim K3",
+    "validator_label": "",
+    "source_sheet": "04 K3 Mahasiswa"
+  },
+  {
+    "code": "K4.01",
+    "title": "Profil Dosen Tetap",
+    "source_unit": "SISTER",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.02",
+    "title": "Profil Dosen Tidak Tetap",
+    "source_unit": "Prodi",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.03",
+    "title": "Data Serdos",
+    "source_unit": "SISTER",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.04",
+    "title": "Jabatan Akademik",
+    "source_unit": "SISTER",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.05",
+    "title": "Pedoman Pengelolaan SDM UNM",
+    "source_unit": "Kepegawaian",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.06",
+    "title": "BKD",
+    "source_unit": "BKD",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.07",
+    "title": "Remunerasi",
+    "source_unit": "Keuangan",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.08",
+    "title": "Tugas Belajar",
+    "source_unit": "Kepegawaian",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.09",
+    "title": "People Planning",
+    "source_unit": "Dekanat",
+    "pic_label": "Ketua Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.10",
+    "title": "Kebutuhan Dosen/Tendik",
+    "source_unit": "Dekanat/prodi",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.11",
+    "title": "Matriks Penugasan Dosen",
+    "source_unit": "Prodi",
+    "pic_label": "Kaprodi /Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.12",
+    "title": "Rekognisi Dosen Pendidikan dan Pengajaran, Penelitian, PkM,",
+    "source_unit": "Prodi/Dosen yang bersangkutan",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K4.13",
+    "title": "Laporan Kegiatan Dosen Praktisi",
+    "source_unit": "Prodi",
+    "pic_label": "Tim SDM",
+    "validator_label": "",
+    "source_sheet": "05 K4 SDM"
+  },
+  {
+    "code": "K5.01",
+    "title": "RKAT (RAKL",
+    "source_unit": "Keuangan",
+    "pic_label": "Tim K5",
+    "validator_label": "",
+    "source_sheet": "06 K5 KeuanganSarpras"
+  },
+  {
+    "code": "K5.02",
+    "title": "Realisasi Keuangan",
+    "source_unit": "Keuangan",
+    "pic_label": "Tim K5",
+    "validator_label": "",
+    "source_sheet": "06 K5 KeuanganSarpras"
+  },
+  {
+    "code": "K5.03",
+    "title": "Rencana Pengembangan Sarpras",
+    "source_unit": "Sarpras",
+    "pic_label": "Tim K5",
+    "validator_label": "",
+    "source_sheet": "06 K5 KeuanganSarpras"
+  },
+  {
+    "code": "K5.04",
+    "title": "Pengelolaan dan Pemanfaatan Sarpras",
+    "source_unit": "Sarpras",
+    "pic_label": "Tim K5",
+    "validator_label": "",
+    "source_sheet": "06 K5 KeuanganSarpras"
+  },
+  {
+    "code": "K5.05",
+    "title": "Inventaris dan Dokumentasi",
+    "source_unit": "BMN",
+    "pic_label": "Tim K5",
+    "validator_label": "",
+    "source_sheet": "06 K5 KeuanganSarpras"
+  },
+  {
+    "code": "K6.01",
+    "title": "Tujuan Pendidikan PS",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.02",
+    "title": "Profil Lulusan",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.03",
+    "title": "CPL",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.04",
+    "title": "Dokumen Pengembangan Kurikulum",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.05",
+    "title": "Rubrik CPL",
+    "source_unit": "GPM",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.06",
+    "title": "Hasil Pengukuran CPL",
+    "source_unit": "GPM",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.07",
+    "title": "Laporan Peninjuaan Kurikulum",
+    "source_unit": "GPM",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.08",
+    "title": "FGD Kurikulum",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.09",
+    "title": "Survey Alumni/Pengguna",
+    "source_unit": "CDC",
+    "pic_label": "Tim K6",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K6.10",
+    "title": "Evaluasi, Implementasi, dan Intervensi Kurikulum",
+    "source_unit": "Prodi",
+    "pic_label": "Kaprodi",
+    "validator_label": "",
+    "source_sheet": "07 K6 Kurikulum"
+  },
+  {
+    "code": "K7.01",
+    "title": "Penelitian Dosen",
+    "source_unit": "LP2M",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.02",
+    "title": "Pendanaan Penelitian",
+    "source_unit": "LP2M",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.03",
+    "title": "Publikasi",
+    "source_unit": "SINTA/Scopus",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.04",
+    "title": "Integrasi Penelitian ke Pembelajaran",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.05",
+    "title": "PKM Dosen",
+    "source_unit": "LP2M",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.06",
+    "title": "Pendanaan PKM",
+    "source_unit": "LP2M",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.07",
+    "title": "Rekognisi Penelitian dan PKM",
+    "source_unit": "LP2M",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.08",
+    "title": "Kerjasama Penelitian dan PKM",
+    "source_unit": "Kerjasama",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.09",
+    "title": "Bukti hasil penelitian digunakan untuk mendukung proses belajar mengajar.",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  },
+  {
+    "code": "K7.10",
+    "title": "Bukti hasil PkM digunakan untuk mendukung proses belajar mengajar.",
+    "source_unit": "Prodi",
+    "pic_label": "Tim K7",
+    "validator_label": "",
+    "source_sheet": "08 K7 PenelitianPKM"
+  }
+]

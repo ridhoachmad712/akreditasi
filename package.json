@@ -1,0 +1,25 @@
+{
+  "name": "sisakprod",
+  "version": "1.0.0",
+  "description": "Ruang kerja Akreditasi Unggul S1 Manajemen FEB UNM",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test --test-concurrency=1 tests/*.test.js",
+    "backup": "node scripts/backup.mjs",
+    "restore": "node scripts/restore.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "archiver": "^8.0.0",
+    "express": "^5.2.1",
+    "multer": "^2.4.0"
+  },
+  "devDependencies": {
+    "yauzl": "^3.4.0"
+  }
+}
