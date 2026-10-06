@@ -124,6 +124,9 @@ a:hover { color: var(--forest-dark); }
 .indicator-section-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 18px; }
 .indicator-section-head h2 { margin: 0; }
 .indicator-section-head .mini { margin: 0; }
+#indicator-evidence { scroll-margin-top: 100px; }
+.evidence-more-sources { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
+.evidence-more-sources form { margin-top: 18px; }
 .indicator-page #narrative-mode { max-width: 440px; }
 
 .grid { display: grid; gap: 18px; }

@@ -147,6 +147,20 @@ test('alur bukti sampai persetujuan dan pengaman simulasi', { timeout: 40000 }, 
     assert.equal((await request(`/api/evidence/${second.id}`,'GET',null,admin)).data.item.status,'revision');
     assert.equal((await request(`/api/evidence/${second.id}/links/${source.data.id}`,'DELETE',null,sessions.team)).response.status,200);
     assert.equal((await request(`/api/evidence/${evidence.id}`,'GET',null,admin)).data.links.length,1);
+    assert.equal((await request(`/api/indicators/${indicatorId}/link`,'POST',{
+      evidenceId:second.id,mappingNote:'Dokumen tambahan mendukung indikator yang sama.',
+      sourceTitle:'Bukti tambahan pertama',sourceUrl:'https://example.org/bukti-tambahan-1',
+    },sessions.team)).response.status,200);
+    let indicatorEvidence=(await request(`/api/indicators/${indicatorId}`,'GET',null,sessions.team)).data.evidence;
+    assert.deepEqual(indicatorEvidence.map(item=>item.id).sort((a,b)=>a-b),[evidence.id,second.id].sort((a,b)=>a-b));
+    assert.equal(indicatorEvidence.find(item=>item.id===second.id).link_count,1);
+    assert.equal((await request(`/api/evidence/${second.id}/links`,'POST',{
+      title:'Bukti tambahan kedua',url:'https://example.org/bukti-tambahan-2',
+    },sessions.team)).response.status,201);
+    indicatorEvidence=(await request(`/api/indicators/${indicatorId}`,'GET',null,sessions.team)).data.evidence;
+    assert.equal(indicatorEvidence.find(item=>item.id===second.id).link_count,2);
+    assert.equal((await request(`/api/indicators/${indicatorId}/link/${second.id}`,'DELETE',null,sessions.team)).response.status,200);
+    assert.deepEqual((await request(`/api/indicators/${indicatorId}`,'GET',null,sessions.team)).data.evidence.map(item=>item.id),[evidence.id]);
   } finally {
     child.kill();
     if (child.exitCode === null) await new Promise(resolve => child.once('exit', resolve));
