@@ -7,11 +7,11 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;',
 const safeName = value => String(value ?? '').replace(/[^a-zA-Z0-9._-]+/g,'_').slice(0,120) || 'berkas';
 const sha256 = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 
-export function buildAssessorPackage(db, uploadDir) {
+export async function buildAssessorPackage(db, uploadDir) {
   const get=(sql,...args)=>db.prepare(sql).get(...args);
   const all=(sql,...args)=>db.prepare(sql).all(...args);
-  const instrument=get('SELECT name,source_url FROM instrument_versions ORDER BY id DESC LIMIT 1');
-  const approved=all(`SELECT i.id,i.code,i.text,i.source_ref,d.title AS dimension,c.code AS criterion,
+  const instrument=await get('SELECT name,source_url FROM instrument_versions ORDER BY id DESC LIMIT 1');
+  const approved=await all(`SELECT i.id,i.code,i.text,i.source_ref,d.title AS dimension,c.code AS criterion,
     n.body AS narrative,n.source_url AS narrativeUrl,a.result,a.rationale,a.approved_at
     FROM indicators i JOIN dimensions d ON d.id=i.dimension_id JOIN criteria c ON c.id=d.criterion_id
     JOIN assessments a ON a.id=(SELECT id FROM assessments WHERE indicator_id=i.id ORDER BY id DESC LIMIT 1)
@@ -19,7 +19,7 @@ export function buildAssessorPackage(db, uploadDir) {
   const evidenceById=new Map(), filesById=new Map(), invalidIndicators=[];
   const indicators=[];
   for(const indicator of approved) {
-    const linked=all(`SELECT e.id,e.code,e.title,e.status,ie.mapping_note
+    const linked=await all(`SELECT e.id,e.code,e.title,e.status,ie.mapping_note
       FROM indicator_evidence ie JOIN evidence_requests e ON e.id=ie.evidence_id
       WHERE ie.indicator_id=? ORDER BY e.code`,indicator.id);
     if(!linked.length || linked.some(e=>e.status!=='verified')) {
@@ -29,15 +29,15 @@ export function buildAssessorPackage(db, uploadDir) {
     indicators.push({...indicator,evidence:linked.map(e=>({code:e.code,mappingNote:e.mapping_note}))});
     for(const item of linked) {
       if(evidenceById.has(item.id)) continue;
-      const files=all(`SELECT id,stored_name,original_name,size,version FROM evidence_files
-        WHERE evidence_id=? ORDER BY version DESC`,item.id).map(file=>{
+      const files=(await all(`SELECT id,stored_name,original_name,size,version FROM evidence_files
+        WHERE evidence_id=? ORDER BY version DESC`,item.id)).map(file=>{
         const stored=path.join(uploadDir,path.basename(file.stored_name));
         const archivePath=`bukti/${safeName(item.code)}/${file.id}-${safeName(file.original_name)}`;
         const entry={name:file.original_name,version:file.version,size:file.size,path:archivePath};
         filesById.set(file.id,{stored,archivePath,entry});
         return entry;
       });
-      const links=all(`SELECT l.title,l.url FROM evidence_link_usage elu
+      const links=await all(`SELECT l.title,l.url FROM evidence_link_usage elu
         JOIN evidence_links l ON l.id=elu.link_id
         WHERE elu.evidence_id=? AND l.status='verified' ORDER BY l.id`,item.id);
       evidenceById.set(item.id,{code:item.code,title:item.title,files,links});

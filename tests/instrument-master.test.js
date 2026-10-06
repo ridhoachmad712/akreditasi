@@ -21,16 +21,16 @@ test('master DL-09 lengkap dan impor tidak menimpa pemetaan pengguna', async () 
   try {
     const { db } = await import('../db.js');
     assert.equal(db.prepare('SELECT COUNT(*) AS n FROM indicators').get().n, 0);
-    const result = importIndicatorMaster(db);
+    const result = await importIndicatorMaster(db);
     assert.equal(result.count, 58);
     assert.equal(db.prepare('SELECT COUNT(*) AS n FROM indicators WHERE is_required_unggul=1').get().n, 8);
     assert.equal(db.prepare('SELECT status FROM instrument_versions ORDER BY id DESC LIMIT 1').get().status, 'draft');
     assert.equal(db.prepare('SELECT source_sha256 FROM instrument_versions ORDER BY id DESC LIMIT 1').get().source_sha256, master.sourceSha256);
-    assert.equal(validateImportedMapping(db), true);
+    assert.equal(await validateImportedMapping(db), true);
     db.prepare("UPDATE indicators SET is_required_unggul=0 WHERE code='K1.D1.01'").run();
-    assert.throws(() => validateImportedMapping(db), /syarat perlu/);
+    await assert.rejects(() => validateImportedMapping(db), /syarat perlu/);
     db.prepare("UPDATE indicators SET is_required_unggul=1 WHERE code='K1.D1.01'").run();
-    assert.throws(() => importIndicatorMaster(db), /belum memiliki indikator/);
+    await assert.rejects(() => importIndicatorMaster(db), /belum memiliki indikator/);
     assert.equal(db.prepare('SELECT COUNT(*) AS n FROM indicators').get().n, 58);
     db.close();
   } finally {

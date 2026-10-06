@@ -1,4 +1,6 @@
-# Operasional SISAKPROD
+# Operasional SISAKPROD (SQLite)
+
+Untuk produksi di Hostinger Cloud Hosting dengan MySQL, gunakan [panduan deploy Hostinger](DEPLOY_HOSTINGER_MYSQL.md). Perintah cadangan dan pemulihan di bawah ini hanya berlaku untuk SQLite.
 
 Dokumen ini menyiapkan satu instalasi internal S1 Manajemen FEB UNM. Akun dan dokumen akreditasi merupakan data terbatas; administrator server harus membatasi akses ke database, berkas, dan cadangan.
 

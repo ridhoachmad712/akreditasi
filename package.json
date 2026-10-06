@@ -17,7 +17,8 @@
   "dependencies": {
     "archiver": "^8.0.0",
     "express": "^5.2.1",
-    "multer": "^2.4.0"
+    "multer": "^2.4.0",
+    "mysql2": "^3.24.5"
   },
   "devDependencies": {
     "yauzl": "^3.4.0"

@@ -48,40 +48,40 @@ export function validateIndicatorMaster(master) {
   return { count: master.indicators.length, required, counts };
 }
 
-export function importIndicatorMaster(db, actorId = null) {
+export async function importIndicatorMaster(db, actorId = null) {
   const master = readIndicatorMaster();
   const summary = validateIndicatorMaster(master);
-  db.exec('BEGIN IMMEDIATE');
+  await db.exec('BEGIN IMMEDIATE');
   try {
-    const instrument = db.prepare('SELECT * FROM instrument_versions ORDER BY id DESC LIMIT 1').get();
+    const instrument = await db.prepare('SELECT * FROM instrument_versions ORDER BY id DESC LIMIT 1').get();
     if (!instrument || instrument.status !== 'draft' || instrument.expected_indicators !== 58 ||
-      db.prepare('SELECT COUNT(*) AS n FROM indicators').get().n !== 0)
+      (await db.prepare('SELECT COUNT(*) AS n FROM indicators').get()).n !== 0)
       throw new Error('Impor hanya tersedia untuk instrumen draft yang belum memiliki indikator.');
-    const dimensions = new Map(db.prepare('SELECT code,id FROM dimensions').all().map(x => [x.code,x.id]));
+    const dimensions = new Map((await db.prepare('SELECT code,id FROM dimensions').all()).map(x => [x.code,x.id]));
     if (dimensions.size !== 21 || Object.keys(expectedByDimension).some(code => !dimensions.has(code)))
       throw new Error('Struktur 21 dimensi tidak sesuai dengan master.');
     const insert = db.prepare(`INSERT INTO indicators
       (dimension_id,code,text,standard_type,source_ref,is_required_unggul)
       VALUES(?,?,?,?,?,?)`);
-    for (const item of master.indicators) insert.run(dimensions.get(item.dimensionCode),item.code,item.text,
+    for (const item of master.indicators) await insert.run(dimensions.get(item.dimensionCode),item.code,item.text,
       'Pelampauan SN-Dikti',item.sourceRef,item.isRequiredUnggul ? 1 : 0);
-    db.prepare('UPDATE instrument_versions SET name=?,source_url=?,source_sha256=? WHERE id=?')
+    await db.prepare('UPDATE instrument_versions SET name=?,source_url=?,source_sha256=? WHERE id=?')
       .run(master.name,master.sourceUrl,master.sourceSha256,instrument.id);
-    db.prepare('INSERT INTO audit_logs(actor_id,action,entity,entity_id,details) VALUES(?,?,?,?,?)')
+    await db.prepare('INSERT INTO audit_logs(actor_id,action,entity,entity_id,details) VALUES(?,?,?,?,?)')
       .run(actorId,'import','instrument',instrument.id,`DL-09 master: ${summary.count} indikator; sha256 ${master.sourceSha256}`);
-    db.exec('COMMIT');
+    await db.exec('COMMIT');
     return summary;
   } catch (error) {
-    db.exec('ROLLBACK');
+    await db.exec('ROLLBACK');
     throw error;
   }
 }
 
-export function validateImportedMapping(db) {
+export async function validateImportedMapping(db) {
   const master = readIndicatorMaster();
   validateIndicatorMaster(master);
-  const dimensions = new Map(db.prepare('SELECT id,code FROM dimensions').all().map(x => [x.id,x.code]));
-  const mapped = db.prepare('SELECT code,dimension_id,text,source_ref,is_required_unggul FROM indicators').all();
+  const dimensions = new Map((await db.prepare('SELECT id,code FROM dimensions').all()).map(x => [x.id,x.code]));
+  const mapped = await db.prepare('SELECT code,dimension_id,text,source_ref,is_required_unggul FROM indicators').all();
   if (mapped.length !== 58) throw new Error('Pemetaan harus berisi tepat 58 indikator.');
   const expected = new Map(master.indicators.map(x => [x.code,x]));
   for (const row of mapped) {

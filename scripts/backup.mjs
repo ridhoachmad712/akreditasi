@@ -4,6 +4,8 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { DatabaseSync, backup } from 'node:sqlite';
 
+if (process.env.DB_DRIVER === 'mysql') throw new Error('Skrip ini hanya untuk SQLite. Cadangkan MySQL dari hPanel dan folder unggahan secara terpisah.');
+
 const project=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
 const outputArg=arg('--output');

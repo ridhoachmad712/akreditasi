@@ -3,6 +3,8 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
 
+if (process.env.DB_DRIVER === 'mysql') throw new Error('Skrip ini hanya untuk SQLite. Pulihkan MySQL dari cadangan hPanel dan folder unggahan secara terpisah.');
+
 const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
 const backupArg=arg('--backup'), dataArg=arg('--data-dir'), uploadArg=arg('--upload-dir');
 if(!backupArg||!dataArg||!uploadArg)
