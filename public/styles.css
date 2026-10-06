@@ -98,9 +98,9 @@ a:hover { color: var(--forest-dark); }
 .page-head .muted { max-width: 720px; margin: 0; font-size: .9rem; }
 .page-head > .button-row { justify-content: flex-end; }
 .indicator-page { width: 100%; }
-.indicator-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 330px); gap: 18px; align-items: start; margin-bottom: 18px; }
+.indicator-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 300px); gap: 18px; align-items: start; margin-bottom: 14px; }
 .indicator-top .page-head { min-width: 0; margin-bottom: 0; }
-.panel.indicator-reference { min-width: 0; padding: 17px 19px; margin-bottom: 0; }
+.panel.indicator-reference { min-width: 0; padding: 14px 16px; margin-bottom: 0; }
 .panel.indicator-reference h2 { margin: 0 0 9px; font-size: .87rem; }
 .indicator-reference .muted { margin: 0 0 12px; overflow-wrap: anywhere; font-size: .81rem; }
 .indicator-page .page-head { align-items: flex-start; margin-bottom: 18px; }
@@ -109,12 +109,12 @@ a:hover { color: var(--forest-dark); }
 .indicator-page .page-head .muted { max-width: 850px; }
 .indicator-page .page-head > .button-row { flex: 0 0 auto; }
 .indicator-workflow-hint { margin: 0 0 19px; color: #5e6b7e; font-size: .82rem; line-height: 1.5; }
-.indicator-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-bottom: 17px; }
-.indicator-step { display: flex; align-items: center; gap: 11px; min-width: 0; padding: 13px 15px; border: 1px solid var(--line); border-radius: 11px; background: #fff; color: var(--muted); text-decoration: none; }
+.indicator-steps { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin-bottom: 16px; }
+.indicator-step { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--muted); text-decoration: none; }
 .indicator-step:hover { border-color: #cbd5e1; text-decoration: none; }
 .indicator-step.done { color: #24704d; }
 .indicator-step.current { border-color: color-mix(in srgb,var(--forest),white 65%); background: var(--soft-green); color: var(--forest); }
-.indicator-step-icon { display: grid; place-items: center; width: 32px; height: 32px; flex: none; border-radius: 9px; background: #f1f3f6; }
+.indicator-step-icon { display: grid; place-items: center; width: 27px; height: 27px; flex: none; border-radius: 8px; background: #f1f3f6; }
 .indicator-step.done .indicator-step-icon { background: #eaf8ef; }
 .indicator-step.current .indicator-step-icon { background: #fff; }
 .indicator-step span:last-child { min-width: 0; }
@@ -125,6 +125,23 @@ a:hover { color: var(--forest-dark); }
 .indicator-section-head h2 { margin: 0; }
 .indicator-section-head .mini { margin: 0; }
 #indicator-evidence { scroll-margin-top: 100px; }
+.indicator-page .panel { padding: 20px 23px; }
+.indicator-page .page-head h1 { font-size: clamp(1.6rem, 2vw, 2rem); }
+.indicator-page .page-head .muted { max-width: 760px; font-size: .83rem; }
+.indicator-narrative-editor { max-width: 850px; }
+.indicator-narrative-editor .field { margin-bottom: 11px; }
+.indicator-narrative-editor .form-actions { margin-top: 10px; }
+.indicator-narrative-editor #narrative-link-field .mini { margin: 7px 0 0; }
+.narrative-saved { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 18px; font-size: .87rem; }
+.narrative-saved .mini { margin: 0; }
+.narrative-edit { margin-top: 14px; }
+.narrative-edit .indicator-narrative-editor { margin-top: 17px; }
+.evidence-add { margin-top: 19px; padding-top: 16px; border-top: 1px solid var(--line); }
+.evidence-add > summary { display: inline-flex; align-items: center; min-height: 38px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; list-style: none; }
+.evidence-add > summary::-webkit-details-marker { display: none; }
+.evidence-add[open] > summary { margin-bottom: 18px; }
+.evidence-add .field { max-width: 850px; }
+.evidence-add > .mini { margin: 0 0 12px; }
 .evidence-more-sources { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); }
 .evidence-more-sources form { margin-top: 18px; }
 .indicator-page #narrative-mode { max-width: 440px; }
