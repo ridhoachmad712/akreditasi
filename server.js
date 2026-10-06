@@ -4,13 +4,17 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-const dbDriver = process.env.DB_DRIVER || (process.env.NODE_ENV === 'production' ? '' : 'sqlite');
-if (!['sqlite', 'mysql'].includes(dbDriver)) throw new Error('Atur DB_DRIVER=mysql untuk produksi atau sqlite untuk pengembangan.');
-const { db, audit } = await import(dbDriver === 'mysql' ? './db-mysql.js' : './db.js');
 import { projectUnggul } from './simulation.js';
 import { importIndicatorMaster, validateImportedMapping } from './instrument-master.js';
 import { S1_RULES, periodFromEnd } from './s1-rules.js';
 import { buildAssessorPackage, streamAssessorZip } from './assessor-package.js';
+
+async function start() {
+const dbDriver = process.env.DB_DRIVER || (process.env.NODE_ENV === 'production' ? '' : 'sqlite');
+if (!['sqlite', 'mysql'].includes(dbDriver)) throw new Error('Atur DB_DRIVER=mysql untuk produksi atau sqlite untuk pengembangan.');
+const database = await import(dbDriver === 'mysql' ? './db-mysql.js' : './db.js');
+if (dbDriver === 'mysql') await database.initializeDb();
+const { db, audit } = database;
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const uploadDir = path.resolve(process.env.SISAKPROD_UPLOAD_DIR || path.join(here, 'uploads'));
@@ -853,3 +857,9 @@ app.use((error, _req, res, _next) => {
 const port=Number(process.env.PORT||3000);
 const host=process.env.HOST||'127.0.0.1';
 app.listen(port,host,()=>console.log(`SISAKPROD berjalan di http://${host}:${port}`));
+}
+
+start().catch(error => {
+  console.error('SISAKPROD gagal dijalankan:', error);
+  process.exit(1);
+});

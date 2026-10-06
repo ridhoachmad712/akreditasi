@@ -169,7 +169,9 @@ async function initialize() {
   }
 }
 
-await initialize();
+export async function initializeDb() {
+  await initialize();
+}
 
 export async function audit(actorId, action, entity, entityId, details = '') {
   await db.prepare('INSERT INTO audit_logs(actor_id,action,entity,entity_id,details) VALUES(?,?,?,?,?)')
