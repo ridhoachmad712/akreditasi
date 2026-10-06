@@ -158,6 +158,16 @@ CREATE TABLE IF NOT EXISTS assessments (
   INDEX idx_assessments_indicator (indicator_id, id)
 ) ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS assessment_drafts (
+  indicator_id INT PRIMARY KEY,
+  result ENUM('met','not_met') NOT NULL,
+  rationale TEXT NOT NULL,
+  saved_by INT NOT NULL,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (indicator_id) REFERENCES indicators(id) ON DELETE CASCADE,
+  FOREIGN KEY (saved_by) REFERENCES users(id)
+) ENGINE=InnoDB;
+
 CREATE TABLE IF NOT EXISTS eligibility_rules (
   id INT AUTO_INCREMENT PRIMARY KEY,
   code VARCHAR(50) NOT NULL UNIQUE,

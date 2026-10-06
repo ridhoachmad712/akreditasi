@@ -124,7 +124,7 @@ a:hover { color: var(--forest-dark); }
 .indicator-section-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 18px; }
 .indicator-section-head h2 { margin: 0; }
 .indicator-section-head .mini { margin: 0; }
-#indicator-evidence { scroll-margin-top: 100px; }
+#indicator-evidence, #indicator-assessment, #indicator-narrative { scroll-margin-top: 100px; }
 .indicator-page .panel { padding: 20px 23px; }
 .indicator-page .page-head h1 { font-size: clamp(1.6rem, 2vw, 2rem); }
 .indicator-page .page-head .muted { max-width: 760px; font-size: .83rem; }
@@ -136,6 +136,8 @@ a:hover { color: var(--forest-dark); }
 .narrative-saved .mini { margin: 0; }
 .narrative-edit { margin-top: 14px; }
 .narrative-edit .indicator-narrative-editor { margin-top: 17px; }
+.indicator-submit { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 18px; padding-top: 17px; border-top: 1px solid var(--line); }
+.indicator-submit .mini { margin: 0; }
 .evidence-add { margin-top: 19px; padding-top: 16px; border-top: 1px solid var(--line); }
 .evidence-add > summary { display: inline-flex; align-items: center; min-height: 38px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; list-style: none; }
 .evidence-add > summary::-webkit-details-marker { display: none; }

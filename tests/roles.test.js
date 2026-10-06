@@ -70,6 +70,10 @@ test('izin lintas peran, revisi, dan akses baca asesor', { timeout:40000 }, asyn
       assert.equal(login.response.status,200);
       sessions[account]=cookie(login.response);
     }
+    async function submitAssessment(indicatorId,result,rationale){
+      await status(`/api/indicators/${indicatorId}/assessment-draft`,'PUT',{result,rationale},sessions.team,200);
+      return (await status(`/api/indicators/${indicatorId}/assessment`,'POST',{},sessions.team,201)).id;
+    }
     const dimensionId=criteria.criteria[0].dimensions[0].id;
     const indicatorPayload={dimensionId,code:'TEST-IAU-01',text:'Indikator uji peran',sourceRef:'DL-09 uji'};
     await status('/api/indicators','POST',indicatorPayload,sessions.team,403);
@@ -96,7 +100,7 @@ test('izin lintas peran, revisi, dan akses baca asesor', { timeout:40000 }, asyn
     const otherProgress=teamTree.flatMap(c=>c.dimensions.flatMap(d=>d.indicators)).find(i=>i.id===otherIndicatorId);
     assert.equal(otherProgress.has_narrative,1);
     assert.equal(otherProgress.sourced_evidence_count,1);
-    await status(`/api/indicators/${otherIndicatorId}/assessment`,'POST',{result:'not_met',rationale:'Dokumen uji belum diverifikasi.'},sessions.team,201);
+    await submitAssessment(otherIndicatorId,'not_met','Dokumen uji belum diverifikasi.');
     await status(`/api/indicators/${indicatorId}/link`,'POST',{evidenceId:evidence.id,mappingNote:'Mendukung indikator uji.'},sessions.team,200);
     const form=new FormData();form.append('file',new Blob(['%PDF-1.4\ntest'],{type:'application/pdf'}),'uji.pdf');
     const fileId=(await status(`/api/evidence/${evidence.id}/files`,'POST',form,sessions.team,201)).id;
@@ -107,19 +111,19 @@ test('izin lintas peran, revisi, dan akses baca asesor', { timeout:40000 }, asyn
     await status(`/api/indicators/${indicatorId}/narrative`,'PUT',{body:'Narasi pertama.'},sessions.team,200);
     await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Bukti terverifikasi.'},sessions.validator,403);
     await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Bukti terverifikasi.'},sessions.kaprodi,403);
-    const first=(await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Bukti terverifikasi.'},sessions.team,201)).id;
+    const first=await submitAssessment(indicatorId,'met','Bukti terverifikasi.');
     await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Pengajuan ganda.'},sessions.team,409);
     await status(`/api/assessments/${first}/review`,'POST',{decision:'reviewed'},sessions.team,403);
     await status(`/api/assessments/${first}/review`,'POST',{decision:'reviewed'},sessions.kaprodi,403);
     await status(`/api/assessments/${first}/review`,'POST',{decision:'revision',note:'Perbaiki dasar.'},sessions.validator,200);
     await status(`/api/assessments/${first}/approve`,'POST',{},sessions.kaprodi,409);
-    const second=(await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Dasar diperbaiki.'},sessions.team,201)).id;
+    const second=await submitAssessment(indicatorId,'met','Dasar diperbaiki.');
     await status(`/api/assessments/${first}/review`,'POST',{decision:'reviewed'},sessions.validator,409);
     await status(`/api/assessments/${second}/review`,'POST',{decision:'reviewed'},sessions.validator,200);
     await status(`/api/indicators/${indicatorId}/narrative`,'PUT',{sourceUrl:'https://docs.google.com/document/d/narasi-uji/edit'},sessions.team,200);
     assert.equal((await status(`/api/indicators/${indicatorId}`,'GET',null,admin,200)).assessment.status,'revision');
     await status(`/api/assessments/${second}/approve`,'POST',{},sessions.kaprodi,409);
-    const third=(await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Narasi terbaru.'},sessions.team,201)).id;
+    const third=await submitAssessment(indicatorId,'met','Narasi terbaru.');
     await status(`/api/assessments/${third}/review`,'POST',{decision:'reviewed'},sessions.validator,200);
     await status(`/api/assessments/${third}/approve`,'POST',{},sessions.validator,403);
     await status(`/api/assessments/${third}/approve`,'POST',{},sessions.kaprodi,200);
@@ -159,7 +163,7 @@ test('izin lintas peran, revisi, dan akses baca asesor', { timeout:40000 }, asyn
     await status(`/api/evidence/${evidence.id}`,'GET',null,sessions.asesor,404);
     await status(`/api/files/${fileId}`,'GET',null,sessions.asesor,404);
     await status('/api/assessor-package/download','GET',null,sessions.asesor,409);
-    const fourth=(await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Narasi baru.'},sessions.team,201)).id;
+    const fourth=await submitAssessment(indicatorId,'met','Narasi baru.');
     await status(`/api/assessments/${fourth}/review`,'POST',{decision:'reviewed'},sessions.validator,200);
     await status(`/api/assessments/${fourth}/approve`,'POST',{},sessions.kaprodi,200);
     const replacement=new FormData();replacement.append('file',new Blob(['%PDF-1.4\nversion2'],{type:'application/pdf'}),'versi2.pdf');
@@ -167,7 +171,7 @@ test('izin lintas peran, revisi, dan akses baca asesor', { timeout:40000 }, asyn
     assert.equal((await status(`/api/indicators/${indicatorId}`,'GET',null,admin,200)).assessment.status,'revision');
     assert.equal((await status('/api/evidence','GET',null,sessions.asesor,200)).items.length,0);
     await status(`/api/evidence/${evidence.id}`,'PUT',{status:'verified'},sessions.validator,200);
-    const fifth=(await status(`/api/indicators/${indicatorId}/assessment`,'POST',{result:'met',rationale:'Berkas versi baru.'},sessions.team,201)).id;
+    const fifth=await submitAssessment(indicatorId,'met','Berkas versi baru.');
     await status(`/api/assessments/${fifth}/review`,'POST',{decision:'reviewed'},sessions.validator,200);
     await status(`/api/assessments/${fifth}/approve`,'POST',{},sessions.kaprodi,200);
     assert.equal((await status('/api/evidence','GET',null,sessions.asesor,200)).items.length,1);

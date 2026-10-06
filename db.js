@@ -94,6 +94,13 @@ CREATE TABLE IF NOT EXISTS assessments (
   review_note TEXT NOT NULL DEFAULT '', approved_by INTEGER REFERENCES users(id),
   submitted_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP, reviewed_at TEXT, approved_at TEXT
 );
+CREATE TABLE IF NOT EXISTS assessment_drafts (
+  indicator_id INTEGER PRIMARY KEY REFERENCES indicators(id) ON DELETE CASCADE,
+  result TEXT NOT NULL CHECK(result IN ('met','not_met')),
+  rationale TEXT NOT NULL,
+  saved_by INTEGER NOT NULL REFERENCES users(id),
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
 CREATE TABLE IF NOT EXISTS eligibility_rules (
   id INTEGER PRIMARY KEY, code TEXT NOT NULL UNIQUE, label TEXT NOT NULL,
   operator TEXT NOT NULL CHECK(operator IN ('>=','>','<=','<','=')),

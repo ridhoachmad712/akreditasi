@@ -359,6 +359,7 @@ app.get('/api/criteria', async (req, res) => {
       WHERE ie.indicator_id=i.id AND e.status='verified') AS verified_evidence_count,
     EXISTS(SELECT 1 FROM indicator_evidence ie JOIN evidence_requests e ON e.id=ie.evidence_id
       WHERE ie.indicator_id=i.id AND e.status='revision') AS has_revision_evidence,
+    EXISTS(SELECT 1 FROM assessment_drafts ad WHERE ad.indicator_id=i.id) AS has_assessment_draft,
     (SELECT status FROM assessments a WHERE a.indicator_id=i.id ORDER BY a.id DESC LIMIT 1) AS assessment_status
     FROM indicators i LEFT JOIN users u ON u.id=i.owner_user_id ORDER BY i.id`);
   res.json({ criteria: criteria.map(c => ({ ...c, dimensions: dimensions.filter(d => d.criterion_id === c.id).map(d => ({ ...d,
@@ -588,6 +589,7 @@ app.get('/api/indicators/:id', async (req, res) => {
   res.json({ indicator,
     narrative: await get('SELECT * FROM narratives WHERE indicator_id=?', indicatorId),
     assessment: await latestAssessment(indicatorId),
+    assessmentDraft: await get('SELECT * FROM assessment_drafts WHERE indicator_id=?', indicatorId),
     evidence });
 });
 app.put('/api/indicators/:id/narrative', roles('admin','team','validator','kaprodi'), async (req, res) => {
@@ -633,19 +635,40 @@ app.delete('/api/indicators/:id/link/:evidenceId', roles('admin','team','validat
   await audit(req.user.id, 'unlink', 'evidence', evidenceId, `indicator ${indicatorId}`);
   res.json({ ok: true });
 });
-app.post('/api/indicators/:id/assessment', roles('team'), async (req, res) => {
+app.put('/api/indicators/:id/assessment-draft', roles('team'), async (req, res) => {
   const indicatorId = id(req.params.id), result = clean(req.body.result, 20), rationale = clean(req.body.rationale, 5000);
   if (!(await get('SELECT 1 FROM indicators WHERE id=?', indicatorId))) return fail(res, 404, 'Indikator tidak ditemukan.');
   if (!(await teamCanAccessIndicator(req,indicatorId))) return fail(res,403,'Indikator ini di luar kriteria tugas Anda.');
-  if (!['met','not_met'].includes(result) || !rationale) return fail(res, 400, 'Hasil dan alasan penilaian wajib diisi.');
+  if (!['met','not_met'].includes(result) || !rationale) return fail(res,400,'Hasil dan alasan penilaian wajib diisi.');
+  const readiness=await indicatorReadiness(indicatorId);
+  if (!readiness.evidence || !readiness.sources) return fail(res,400,'Lengkapi bukti dan sumber dokumen sebelum menyimpan penilaian awal.');
+  if (['submitted','reviewed','approved'].includes((await latestAssessment(indicatorId))?.status))
+    return fail(res,409,'Penilaian sedang diproses atau sudah disetujui.');
+  if (await get('SELECT 1 FROM assessment_drafts WHERE indicator_id=?', indicatorId))
+    await run('UPDATE assessment_drafts SET result=?,rationale=?,saved_by=?,updated_at=CURRENT_TIMESTAMP WHERE indicator_id=?', result,rationale,req.user.id,indicatorId);
+  else await run('INSERT INTO assessment_drafts(indicator_id,result,rationale,saved_by) VALUES(?,?,?,?)', indicatorId,result,rationale,req.user.id);
+  await audit(req.user.id,'save','assessment_draft',indicatorId);
+  res.json({ok:true});
+});
+app.post('/api/indicators/:id/assessment', roles('team'), async (req, res) => {
+  const indicatorId = id(req.params.id);
+  if (!(await get('SELECT 1 FROM indicators WHERE id=?', indicatorId))) return fail(res, 404, 'Indikator tidak ditemukan.');
+  if (!(await teamCanAccessIndicator(req,indicatorId))) return fail(res,403,'Indikator ini di luar kriteria tugas Anda.');
+  if (['submitted','reviewed','approved'].includes((await latestAssessment(indicatorId))?.status))
+    return fail(res,409,'Penilaian sedang diproses atau sudah disetujui. Ajukan ulang hanya setelah ada permintaan revisi.');
+  const draft=await get('SELECT result,rationale FROM assessment_drafts WHERE indicator_id=?',indicatorId);
+  if (!draft) return fail(res,400,'Simpan penilaian awal sebelum mengajukan.');
   const readiness=await indicatorReadiness(indicatorId);
   if (!readiness.narrative || !readiness.evidence || !readiness.sources)
     return fail(res,400,'Lengkapi narasi, hubungan bukti, dan sumber dokumen sebelum mengajukan penilaian.');
-  if (['submitted','reviewed','approved'].includes((await latestAssessment(indicatorId))?.status))
-    return fail(res,409,'Penilaian sedang diproses atau sudah disetujui. Ajukan ulang hanya setelah ada permintaan revisi.');
-  const assessmentId = Number((await run('INSERT INTO assessments(indicator_id,result,rationale,proposed_by) VALUES(?,?,?,?)', indicatorId,result,rationale,req.user.id)).lastInsertRowid);
-  await audit(req.user.id, 'submit', 'assessment', assessmentId);
-  res.status(201).json({ id: assessmentId });
+  await db.exec('BEGIN');
+  try {
+    const assessmentId = Number((await run('INSERT INTO assessments(indicator_id,result,rationale,proposed_by) VALUES(?,?,?,?)', indicatorId,draft.result,draft.rationale,req.user.id)).lastInsertRowid);
+    await run('DELETE FROM assessment_drafts WHERE indicator_id=?',indicatorId);
+    await audit(req.user.id, 'submit', 'assessment', assessmentId);
+    await db.exec('COMMIT');
+    res.status(201).json({ id: assessmentId });
+  } catch (error) { await db.exec('ROLLBACK'); return fail(res,500,'Penilaian gagal diajukan.'); }
 });
 app.post('/api/assessments/:id/review', roles('validator'), async (req, res) => {
   const assessmentId = id(req.params.id), row = await get('SELECT * FROM assessments WHERE id=?', assessmentId);
