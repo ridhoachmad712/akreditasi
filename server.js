@@ -47,14 +47,21 @@ const validUsername = value => /^[a-z0-9][a-z0-9._-]{1,31}$/.test(value);
 const defaultAppearance = Object.freeze({
   appName: 'SISAKPROD', subtitle: 'S1 Manajemen · FEB UNM',
   footerText: 'Program Studi S1 Manajemen · FEB UNM',
-  loginTitle: 'Dokumen akreditasi, tertata dalam satu ruang kerja.',
-  loginDescription: 'Susun narasi, hubungkan bukti, dan ikuti proses pemeriksaan untuk persiapan Akreditasi Unggul.',
-  accentColor: '#2563eb', font: 'inter', logoFile: '', updatedAt: ''
+  loginTitle: 'Login ke aplikasi', loginHeadline: 'Ruang kerja Akreditasi Unggul',
+  loginDescription: 'Dokumen, narasi, dan bukti terhubung dalam satu ruang kerja.',
+  loginIntro: '', loginUsernameLabel: 'Username', loginPasswordLabel: 'Kata sandi',
+  loginButtonText: 'Masuk', loginBackgroundPosition: 'center',
+  accentColor: '#2563eb', font: 'inter', logoFile: '', loginBackgroundFile: '', updatedAt: ''
 });
 const allowedFonts = new Set(['inter','open-sans','system','segoe','arial']);
 async function appearance() {
   const saved = (await get("SELECT value FROM settings WHERE key='app_appearance'"))?.value || '{}';
-  try { return { ...defaultAppearance, ...JSON.parse(saved) }; }
+  try {
+    const value = { ...defaultAppearance, ...JSON.parse(saved) };
+    if (value.loginTitle === 'Dokumen akreditasi, tertata dalam satu ruang kerja.') value.loginTitle = defaultAppearance.loginTitle;
+    if (value.loginDescription === 'Susun narasi, hubungkan bukti, dan ikuti proses pemeriksaan untuk persiapan Akreditasi Unggul.') value.loginDescription = defaultAppearance.loginDescription;
+    return value;
+  }
   catch { return { ...defaultAppearance }; }
 }
 async function saveAppearance(value) {
@@ -62,8 +69,10 @@ async function saveAppearance(value) {
 }
 async function publicAppearance() {
   const value = await appearance();
-  const { logoFile, ...publicValue } = value;
-  return { ...publicValue, logoUrl: logoFile ? `/api/appearance/logo?v=${encodeURIComponent(value.updatedAt)}` : '' };
+  const { logoFile, loginBackgroundFile, ...publicValue } = value;
+  return { ...publicValue,
+    logoUrl: logoFile ? `/api/appearance/logo?v=${encodeURIComponent(value.updatedAt)}` : '',
+    loginBackgroundUrl: loginBackgroundFile ? `/api/appearance/login-background?v=${encodeURIComponent(value.updatedAt)}` : '' };
 }
 const nowPlusDays = days => new Date(Date.now() + days * 86400000).toISOString();
 const hashToken = token => crypto.createHash('sha256').update(token).digest('hex');
@@ -187,6 +196,13 @@ app.get('/api/appearance/logo', async (_req, res) => {
   if (!fs.existsSync(stored)) return fail(res, 404, 'Logo tidak ditemukan.');
   res.set('Cache-Control', 'no-store').sendFile(stored);
 });
+app.get('/api/appearance/login-background', async (_req, res) => {
+  const file = (await appearance()).loginBackgroundFile;
+  if (!/^login-bg-[a-f0-9-]+\.(png|jpg|webp)$/.test(file)) return fail(res,404,'Gambar latar belum tersedia.');
+  const stored = path.join(uploadDir,file);
+  if (!fs.existsSync(stored)) return fail(res,404,'Gambar latar tidak ditemukan.');
+  res.set('Cache-Control','no-store').sendFile(stored);
+});
 app.post('/api/setup', async (req, res) => {
   if ((await get('SELECT COUNT(*) AS n FROM users')).n !== 0) return fail(res, 409, 'Pengaturan awal sudah selesai.');
   const name = clean(req.body.name, 100), username = usernameValue(req.body.username), password = String(req.body.password || '');
@@ -216,15 +232,23 @@ app.get('/api/me', auth, (req, res) => res.json({ user: userPublic(req.user) }))
 
 app.use('/api', auth);
 app.put('/api/appearance', roles('admin'), async (req, res) => {
-  const fields = ['appName','subtitle','footerText','loginTitle','loginDescription'];
-  const limits = { appName:60, subtitle:100, footerText:180, loginTitle:160, loginDescription:320 };
+  const fields = ['appName','subtitle','footerText','loginTitle','loginHeadline','loginDescription',
+    'loginIntro','loginUsernameLabel','loginPasswordLabel','loginButtonText'];
+  const limits = { appName:60, subtitle:100, footerText:180, loginTitle:160, loginHeadline:120,
+    loginDescription:320, loginIntro:180, loginUsernameLabel:40, loginPasswordLabel:40, loginButtonText:40 };
   const next = { ...(await appearance()) };
   for (const field of fields) {
+    if (!Object.hasOwn(req.body || {},field) && !['appName','subtitle','footerText','loginTitle','loginDescription'].includes(field)) continue;
     if (typeof req.body?.[field] !== 'string' || req.body[field].trim().length > limits[field])
       return fail(res,400,`Isian ${field} tidak valid atau terlalu panjang.`);
     next[field] = req.body[field].trim();
   }
-  if (!next.appName || !next.subtitle || !next.loginTitle) return fail(res,400,'Nama aplikasi, subjudul, dan judul halaman masuk wajib diisi.');
+  if (!next.appName || !next.subtitle || !next.loginTitle || !next.loginHeadline ||
+      !next.loginUsernameLabel || !next.loginPasswordLabel || !next.loginButtonText)
+    return fail(res,400,'Nama aplikasi dan teks utama halaman login wajib diisi.');
+  if (!['center','top','bottom','left','right'].includes(req.body?.loginBackgroundPosition ?? next.loginBackgroundPosition))
+    return fail(res,400,'Posisi gambar latar tidak dikenal.');
+  next.loginBackgroundPosition = req.body.loginBackgroundPosition ?? next.loginBackgroundPosition;
   const color = String(req.body?.accentColor || '').toLowerCase();
   if (!/^#[0-9a-f]{6}$/.test(color)) return fail(res,400,'Warna utama harus menggunakan kode warna enam digit.');
   const channels = [1,3,5].map(index => parseInt(color.slice(index,index+2),16)/255).map(x=>x<=0.04045?x/12.92:((x+0.055)/1.055)**2.4);
@@ -262,6 +286,34 @@ app.delete('/api/appearance/logo', roles('admin'), async (req, res) => {
   if (previous.logoFile && /^brand-[a-f0-9-]+\.(png|jpg|webp)$/.test(previous.logoFile))
     fs.rmSync(path.join(uploadDir,previous.logoFile),{force:true});
   await audit(req.user.id,'delete','settings',null,'logo aplikasi');
+  res.json(await publicAppearance());
+});
+const backgroundUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 5 * 1024 * 1024 } });
+app.post('/api/appearance/login-background', roles('admin'), backgroundUpload.single('background'), async (req, res) => {
+  const file = req.file;
+  if (!file) return fail(res,400,'Pilih gambar latar.');
+  const bytes = file.buffer;
+  const format = bytes.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10])) ? 'png'
+    : bytes.length>=3 && bytes[0]===255 && bytes[1]===216 && bytes[2]===255 ? 'jpg'
+    : bytes.length>=12 && bytes.toString('ascii',0,4)==='RIFF' && bytes.toString('ascii',8,12)==='WEBP' ? 'webp' : '';
+  if (!format) return fail(res,400,'Gambar latar harus berupa PNG, JPG, atau WebP.');
+  const previous = await appearance();
+  const loginBackgroundFile = `login-bg-${crypto.randomUUID()}.${format}`;
+  const stored = path.join(uploadDir,loginBackgroundFile);
+  fs.writeFileSync(stored,bytes,{flag:'wx'});
+  try { await saveAppearance({ ...previous, loginBackgroundFile, updatedAt:new Date().toISOString() }); }
+  catch (error) { fs.rmSync(stored,{force:true}); throw error; }
+  if (previous.loginBackgroundFile && /^login-bg-[a-f0-9-]+\.(png|jpg|webp)$/.test(previous.loginBackgroundFile))
+    fs.rmSync(path.join(uploadDir,previous.loginBackgroundFile),{force:true});
+  await audit(req.user.id,'upload','settings',null,'gambar latar login');
+  res.status(201).json(await publicAppearance());
+});
+app.delete('/api/appearance/login-background', roles('admin'), async (req, res) => {
+  const previous = await appearance();
+  await saveAppearance({ ...previous, loginBackgroundFile:'', updatedAt:new Date().toISOString() });
+  if (previous.loginBackgroundFile && /^login-bg-[a-f0-9-]+\.(png|jpg|webp)$/.test(previous.loginBackgroundFile))
+    fs.rmSync(path.join(uploadDir,previous.loginBackgroundFile),{force:true});
+  await audit(req.user.id,'delete','settings',null,'gambar latar login');
   res.json(await publicAppearance());
 });
 app.get('/api/overview', async (req, res) => {
@@ -850,7 +902,7 @@ app.use(express.static(path.join(here,'public')));
 app.get('/{*any}', (_req,res)=>res.sendFile(path.join(here,'public','index.html')));
 app.use((error, _req, res, _next) => {
   console.error(error);
-  if (error instanceof multer.MulterError) return fail(res,400,error.code==='LIMIT_FILE_SIZE'?'Berkas melebihi 15 MB.':'Unggah berkas gagal.');
+  if (error instanceof multer.MulterError) return fail(res,400,error.code==='LIMIT_FILE_SIZE'?'Berkas melebihi batas ukuran yang diizinkan.':'Unggah berkas gagal.');
   return fail(res,500,'Terjadi kesalahan pada server.');
 });
 

@@ -11,7 +11,11 @@ const canEdit = () => state.user && state.user.role !== 'asesor';
 const canManage = () => ['admin','kaprodi'].includes(state.user?.role);
 const canReview = () => ['validator','kaprodi'].includes(state.user?.role);
 const canAssessmentReview = () => state.user?.role === 'validator';
-const defaultAppearance = { appName:'SISAKPROD', subtitle:'S1 Manajemen · FEB UNM', footerText:'Program Studi S1 Manajemen · FEB UNM', loginTitle:'Dokumen akreditasi, tertata dalam satu ruang kerja.', loginDescription:'Susun narasi, hubungkan bukti, dan ikuti proses pemeriksaan untuk persiapan Akreditasi Unggul.', accentColor:'#2563eb', font:'inter', logoUrl:'' };
+const defaultAppearance = { appName:'SISAKPROD', subtitle:'S1 Manajemen · FEB UNM', footerText:'Program Studi S1 Manajemen · FEB UNM',
+  loginTitle:'Login ke aplikasi', loginHeadline:'Ruang kerja Akreditasi Unggul',
+  loginDescription:'Dokumen, narasi, dan bukti terhubung dalam satu ruang kerja.',
+  loginIntro:'', loginUsernameLabel:'Username', loginPasswordLabel:'Kata sandi', loginButtonText:'Masuk',
+  loginBackgroundPosition:'center', loginBackgroundUrl:'', accentColor:'#2563eb', font:'inter', logoUrl:'' };
 const fontStacks = { inter:'Inter, "Segoe UI", Arial, sans-serif', 'open-sans':'"Open Sans", "Segoe UI", Arial, sans-serif', system:'system-ui, sans-serif', segoe:'"Segoe UI", Arial, sans-serif', arial:'Arial, sans-serif' };
 function appearance(){ return state.appearance || defaultAppearance; }
 function applyAppearance(){
@@ -51,6 +55,9 @@ const iconPaths = {
   users:'<circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2zM17 5a3 3 0 0 1 0 6m1 4a5 5 0 0 1 3 5"/>',
   clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   logout:'<path d="M10 17l5-5-5-5m5 5H3"/><path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/>',
+  lock:'<rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+  eye:'<path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.5"/>',
+  eyeOff:'<path d="M3 3l18 18M10.6 6.1A11 11 0 0 1 12 6c6 0 9.5 6 9.5 6a14 14 0 0 1-3.1 3.7M6.2 7.6C3.8 9.3 2.5 12 2.5 12s3.5 6 9.5 6c1.2 0 2.3-.2 3.3-.6"/><path d="M10 10a2.8 2.8 0 0 0 4 4"/>',
   arrow:'<path d="M5 12h14m-6-6 6 6-6 6"/>'
 };
 const icon = (name, className='') => `<svg class="icon ${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconPaths[name]||iconPaths.file}</svg>`;
@@ -135,13 +142,33 @@ async function boot(){
   catch{const status=await api('/api/setup-status');renderAuth(status.needsSetup);}
 }
 function renderAuth(setup){
-  root.innerHTML=`<div class="auth-shell"><main class="auth-main"><div class="auth-content">
-    <div class="auth-identity">${brandMarkup()}</div><section class="auth-card" aria-labelledby="auth-title">
-    <h1 id="auth-title">${setup?'Buat akun admin':'Login ke aplikasi'}</h1>
-    ${setup?'<p>Siapkan akun pertama untuk mengelola aplikasi.</p>':''}
-    <form id="auth-form">${setup?field('Nama lengkap','name','','text','required'):''}${field('Username','username','','text','required autocomplete="username" autocapitalize="none" spellcheck="false" minlength="2" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9._-]{1,31}"')}${field('Kata sandi','password','','password',`required autocomplete="${setup?'new-password':'current-password'}" ${setup?'minlength="8"':''}`)}${setup?'<p class="mini">Kata sandi minimal 8 karakter.</p>':''}
-    <button class="button primary auth-submit">${setup?'Buat akun':'Masuk'}</button><div id="auth-error" class="login-error" role="alert"></div></form>
-    </section></div></main><footer class="auth-footer">${esc(appearance().footerText)}</footer></div>`;
+  const value=appearance();
+  root.innerHTML=`<div class="auth-shell ${value.loginBackgroundUrl?'has-photo':''}"><main class="auth-main"><div class="auth-content">
+    <section class="auth-story" aria-label="Identitas aplikasi"><div class="auth-identity">${brandMarkup()}</div>
+      <div class="auth-story-copy"><h1>${esc(value.loginHeadline)}</h1>${value.loginDescription?`<p>${esc(value.loginDescription)}</p>`:''}</div>
+      <div class="auth-story-art" aria-hidden="true"><span></span><span></span><span></span></div>
+    </section>
+    <section class="auth-card" aria-labelledby="auth-title"><div class="auth-card-head"><span class="auth-card-mark" aria-hidden="true">${icon('lock')}</span>
+      <h2 id="auth-title">${esc(setup?'Buat akun admin':value.loginTitle)}</h2>
+      ${(setup||value.loginIntro)?`<p>${esc(setup?'Siapkan akun pertama untuk mengelola aplikasi.':value.loginIntro)}</p>`:''}</div>
+      <form id="auth-form">${setup?field('Nama lengkap','name','','text','required autocomplete="name"'):''}
+        ${field(setup?'Username':value.loginUsernameLabel,'username','','text','required autocomplete="username" autocapitalize="none" spellcheck="false" minlength="2" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9._-]{1,31}"')}
+        <div class="field password-field"><label for="password">${esc(setup?'Kata sandi':value.loginPasswordLabel)}</label><div class="password-control"><input id="password" name="password" type="password" required autocomplete="${setup?'new-password':'current-password'}" ${setup?'minlength="8"':''}><button type="button" class="password-toggle" aria-label="Tampilkan kata sandi" aria-pressed="false">${icon('eye')}</button></div></div>
+        ${setup?'<p class="mini">Kata sandi minimal 8 karakter.</p>':''}
+        <button class="button primary auth-submit">${esc(setup?'Buat akun':value.loginButtonText)}${icon('arrow')}</button><div id="auth-error" class="login-error" role="alert"></div></form>
+    </section></div></main><footer class="auth-footer">${esc(value.footerText)}</footer></div>`;
+  if(value.loginBackgroundUrl){
+    const shell=root.querySelector('.auth-shell');
+    shell.style.setProperty('--auth-photo',`url("${value.loginBackgroundUrl}")`);
+    shell.style.setProperty('--auth-position',value.loginBackgroundPosition||'center');
+  }
+  bind('.password-toggle','click',event=>{
+    const password=root.querySelector('#password'),visible=password.type==='password';
+    password.type=visible?'text':'password';
+    event.currentTarget.setAttribute('aria-pressed',String(visible));
+    event.currentTarget.setAttribute('aria-label',visible?'Sembunyikan kata sandi':'Tampilkan kata sandi');
+    event.currentTarget.innerHTML=icon(visible?'eyeOff':'eye');
+  });
   bind('#auth-form','submit',async e=>{e.preventDefault();const f=new FormData(e.currentTarget);const payload=Object.fromEntries(f.entries());try{
     const result=await api(setup?'/api/setup':'/api/login',{method:'POST',body:json(payload)});state.user=result.user;await go('dashboard');
   }catch(error){root.querySelector('#auth-error').textContent=error.message;}});
@@ -441,7 +468,22 @@ async function renderSettings(){
     <div><section class="panel"><h2>Logo aplikasi</h2><div class="settings-logo">${current.logoUrl?`<img src="${esc(current.logoUrl)}" alt="Logo aplikasi saat ini">`:`<span>${esc(current.appName.charAt(0).toLocaleUpperCase('id-ID'))}</span>`}</div>
       <p class="mini">PNG, JPG, atau WebP. Maksimal 2 MB. Logo tampil pada header, halaman masuk, dan ikon tab.</p>
       <form id="logo-form"><div class="field"><label for="logo">Pilih logo baru</label><input id="logo" name="logo" type="file" accept="image/png,image/jpeg,image/webp" required></div><div class="button-row"><button class="button primary">Unggah logo</button>${current.logoUrl?button('Gunakan ikon huruf','remove-logo'):''}</div></form></section>
-      <section class="panel"><h2>Pratinjau identitas</h2><div class="settings-preview" id="settings-preview"><span class="settings-preview-mark" id="preview-mark">${current.logoUrl?`<img src="${esc(current.logoUrl)}" alt="">`:esc(current.appName.charAt(0).toLocaleUpperCase('id-ID'))}</span><div><strong id="preview-name">${esc(current.appName)}</strong><small id="preview-subtitle">${esc(current.subtitle)}</small></div></div><p class="mini">Pratinjau berubah saat Anda mengisi formulir. Tampilan pengguna berubah setelah disimpan.</p></section></div></div>`);
+      <section class="panel"><h2>Pratinjau identitas</h2><div class="settings-preview" id="settings-preview"><span class="settings-preview-mark" id="preview-mark">${current.logoUrl?`<img src="${esc(current.logoUrl)}" alt="">`:esc(current.appName.charAt(0).toLocaleUpperCase('id-ID'))}</span><div><strong id="preview-name">${esc(current.appName)}</strong><small id="preview-subtitle">${esc(current.subtitle)}</small></div></div><p class="mini">Pratinjau berubah saat Anda mengisi formulir. Tampilan pengguna berubah setelah disimpan.</p></section></div></div>
+    <section class="panel login-settings-panel"><div class="login-settings-head"><div><h2>Halaman login</h2><p class="muted">Atur teks dan gambar yang dilihat pengguna sebelum masuk. Perubahan hanya berlaku setelah disimpan.</p></div></div>
+      <div class="login-settings-grid"><form id="login-content-form">
+        ${field('Judul di sisi kiri','loginHeadline',current.loginHeadline,'text','required maxlength="120"')}
+        <div class="field"><label for="loginDescription">Deskripsi di sisi kiri</label><textarea id="loginDescription" name="loginDescription" rows="3" maxlength="320">${esc(current.loginDescription)}</textarea></div>
+        ${field('Judul kartu login','loginTitle',current.loginTitle,'text','required maxlength="160"')}
+        ${field('Kalimat di bawah judul kartu (opsional)','loginIntro',current.loginIntro,'text','maxlength="180"')}
+        <div class="form-grid">${field('Label username','loginUsernameLabel',current.loginUsernameLabel,'text','required maxlength="40"')}
+          ${field('Label kata sandi','loginPasswordLabel',current.loginPasswordLabel,'text','required maxlength="40"')}</div>
+        ${field('Teks tombol masuk','loginButtonText',current.loginButtonText,'text','required maxlength="40"')}
+        <div class="field"><label for="loginBackgroundPosition">Posisi gambar latar</label><select id="loginBackgroundPosition" name="loginBackgroundPosition">${[['center','Tengah'],['top','Atas'],['bottom','Bawah'],['left','Kiri'],['right','Kanan']].map(([value,label])=>option(value,label,current.loginBackgroundPosition===value)).join('')}</select></div>
+        <div class="form-actions"><button class="button primary">Simpan halaman login</button></div></form>
+      <div class="login-settings-side"><div class="login-preview" id="login-preview"><div class="login-preview-copy"><strong id="login-preview-headline">${esc(current.loginHeadline)}</strong><small id="login-preview-description">${esc(current.loginDescription)}</small></div><div class="login-preview-card"><strong id="login-preview-title">${esc(current.loginTitle)}</strong><small id="login-preview-intro">${esc(current.loginIntro)}</small><span id="login-preview-username">${esc(current.loginUsernameLabel)}</span><i></i><span id="login-preview-password">${esc(current.loginPasswordLabel)}</span><i></i><b id="login-preview-button">${esc(current.loginButtonText)}</b></div></div>
+        <p class="mini">Pratinjau ringkas. Cek halaman login sebenarnya setelah menyimpan.</p>
+        <form id="login-background-form"><div class="field"><label for="login-background">Gambar latar</label><input id="login-background" name="background" type="file" accept="image/png,image/jpeg,image/webp" required><p class="mini">PNG, JPG, atau WebP, maksimal 5 MB. Gradasi lembut digunakan bila tidak ada gambar.</p></div><div class="button-row"><button class="button primary">Unggah gambar</button>${current.loginBackgroundUrl?button('Hapus gambar','remove-login-background'):''}</div></form>
+      </div></div></section>`);
   const form=root.querySelector('#appearance-form');
   const preview=()=>{
     root.querySelector('#preview-name').textContent=form.elements.appName.value||'Nama aplikasi';
@@ -453,7 +495,7 @@ async function renderSettings(){
   };
   form.addEventListener('input',preview);form.addEventListener('change',preview);preview();
   form.addEventListener('submit',async event=>{event.preventDefault();try{
-    const payload={...Object.fromEntries(new FormData(form).entries()),loginTitle:current.loginTitle,loginDescription:current.loginDescription};
+    const payload={...current,...Object.fromEntries(new FormData(form).entries())};
     state.appearance=await api('/api/appearance',{method:'PUT',body:json(payload)});
     applyAppearance();toast('Pengaturan tampilan disimpan.');await go('settings');
   }catch(error){handleError(error);}});
@@ -464,6 +506,31 @@ async function renderSettings(){
   bind('[data-action="remove-logo"]','click',async()=>{try{
     state.appearance=await api('/api/appearance/logo',{method:'DELETE'});
     applyAppearance();toast('Ikon huruf digunakan kembali.');await go('settings');
+  }catch(error){handleError(error);}});
+  const loginForm=root.querySelector('#login-content-form');
+  const loginPreview=root.querySelector('#login-preview');
+  if(current.loginBackgroundUrl){
+    loginPreview.style.setProperty('--auth-photo',`url("${current.loginBackgroundUrl}")`);
+    loginPreview.classList.add('has-photo');
+  }
+  const previewLogin=()=>{
+    for(const [element,name] of [['headline','loginHeadline'],['description','loginDescription'],['title','loginTitle'],
+      ['intro','loginIntro'],['username','loginUsernameLabel'],['password','loginPasswordLabel'],['button','loginButtonText']])
+      root.querySelector('#login-preview-'+element).textContent=loginForm.elements[name].value;
+    loginPreview.style.setProperty('--auth-position',loginForm.elements.loginBackgroundPosition.value);
+  };
+  loginForm.addEventListener('input',previewLogin);loginForm.addEventListener('change',previewLogin);previewLogin();
+  loginForm.addEventListener('submit',async event=>{event.preventDefault();try{
+    state.appearance=await api('/api/appearance',{method:'PUT',body:json({...current,...Object.fromEntries(new FormData(loginForm).entries())})});
+    applyAppearance();toast('Halaman login disimpan.');await go('settings');
+  }catch(error){handleError(error);}});
+  bind('#login-background-form','submit',async event=>{event.preventDefault();try{
+    state.appearance=await api('/api/appearance/login-background',{method:'POST',body:new FormData(event.currentTarget)});
+    applyAppearance();toast('Gambar latar diperbarui.');await go('settings');
+  }catch(error){handleError(error);}});
+  bind('[data-action="remove-login-background"]','click',async()=>{try{
+    state.appearance=await api('/api/appearance/login-background',{method:'DELETE'});
+    applyAppearance();toast('Gradasi latar digunakan kembali.');await go('settings');
   }catch(error){handleError(error);}});
 }
 

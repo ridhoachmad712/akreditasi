@@ -37,20 +37,28 @@ test('identitas aplikasi tersimpan, logo dapat diganti, dan hanya admin yang men
     const initial=(await request('/api/appearance')).data;
     assert.equal(initial.appName,'SISAKPROD');
     assert.equal(initial.logoUrl,'');
+    assert.equal(initial.loginTitle,'Login ke aplikasi');
+    assert.equal(initial.loginBackgroundUrl,'');
     const setup=await request('/api/setup','POST',{name:'Admin',username:'admin',password:'strong-password-123'});
     assert.equal(setup.response.status,201);
     const admin=cookie(setup.response);
     assert.equal((await request('/api/users','POST',{name:'Tim',username:'tim',password:'strong-password-123',role:'team'},admin)).response.status,201);
     const team=cookie((await request('/api/login','POST',{username:'tim',password:'strong-password-123'})).response);
     const updated={appName:'Akreditasi FEB',subtitle:'S1 Manajemen',footerText:'FEB UNM · 2026',
-      loginTitle:'Ruang kerja akreditasi',loginDescription:'Dokumen dan bukti dalam satu tempat.',accentColor:'#0f766e',font:'open-sans'};
+      loginTitle:'Masuk ke ruang kerja',loginHeadline:'Akreditasi Unggul dimulai di sini',
+      loginDescription:'Dokumen dan bukti dalam satu tempat.',loginIntro:'Gunakan akun yang diberikan admin.',
+      loginUsernameLabel:'Nama pengguna',loginPasswordLabel:'Sandi akun',loginButtonText:'Lanjut masuk',
+      loginBackgroundPosition:'top',accentColor:'#0f766e',font:'open-sans'};
     assert.equal((await request('/api/appearance','PUT',updated,'')).response.status,401);
     assert.equal((await request('/api/appearance','PUT',updated,team)).response.status,403);
     assert.equal((await request('/api/appearance','PUT',{...updated,accentColor:'#ffffff'},admin)).response.status,400);
     assert.equal((await request('/api/appearance','PUT',{...updated,font:'unknown'},admin)).response.status,400);
+    assert.equal((await request('/api/appearance','PUT',{...updated,loginBackgroundPosition:'invalid'},admin)).response.status,400);
     const saved=await request('/api/appearance','PUT',updated,admin);
     assert.equal(saved.response.status,200);
     assert.equal(saved.data.appName,updated.appName);
+    assert.equal(saved.data.loginHeadline,updated.loginHeadline);
+    assert.equal(saved.data.loginButtonText,updated.loginButtonText);
     assert.equal((await request('/api/appearance')).data.font,'open-sans');
     const fontResponse=await fetch(base+'/fonts/open-sans-latin-wght-normal.woff2');
     assert.equal(fontResponse.status,200);
@@ -66,6 +74,18 @@ test('identitas aplikasi tersimpan, logo dapat diganti, dan hanya admin yang men
     assert.match(image.headers.get('content-type'),/image\/png/);
     assert.equal((await request('/api/appearance/logo','DELETE',null,admin)).response.status,200);
     assert.equal((await request('/api/appearance')).data.logoUrl,'');
+    const background=new FormData();
+    background.append('background',new Blob([Buffer.from([137,80,78,71,13,10,26,10,0,0,0,0])],{type:'image/png'}),'latar.png');
+    assert.equal((await request('/api/appearance/login-background','POST',background,team)).response.status,403);
+    const backgroundUpload=await request('/api/appearance/login-background','POST',background,admin);
+    assert.equal(backgroundUpload.response.status,201);
+    assert.match(backgroundUpload.data.loginBackgroundUrl,/^\/api\/appearance\/login-background\?v=/);
+    const imageResponse=await fetch(base+backgroundUpload.data.loginBackgroundUrl);
+    assert.equal(imageResponse.status,200);
+    assert.match(imageResponse.headers.get('content-type'),/image\/png/);
+    assert.equal((await request('/api/appearance/login-background','DELETE',null,team)).response.status,403);
+    assert.equal((await request('/api/appearance/login-background','DELETE',null,admin)).response.status,200);
+    assert.equal((await request('/api/appearance')).data.loginBackgroundUrl,'');
   } finally {
     child.kill();
     if(child.exitCode===null) await new Promise(resolve=>child.once('exit',resolve));
